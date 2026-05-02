@@ -1,0 +1,189 @@
+<div class="contact" @fadeSlideIn>
+
+  <!-- Header -->
+  <div class="contact__header page-wrapper">
+    <p class="section-label">Let's talk</p>
+    <h1 class="contact__title" appScramble>Get in Touch</h1>
+    <p class="contact__subtitle">
+      Open to backend engineering and DevOps roles. Whether it's a full-time
+      opportunity, a consulting project, or just a technical conversation —
+      I'm always happy to connect.
+    </p>
+  </div>
+
+  <!-- Main content -->
+  <div class="contact__body page-wrapper">
+
+    <!-- Form column -->
+    <div class="contact__form-col">
+
+      @if (formStatus() === 'success') {
+        <!-- Success state -->
+        <div class="contact__success" @fadeSlideIn role="alert" aria-live="polite">
+          <div class="contact__success-icon" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+              <circle cx="16" cy="16" r="15" stroke="var(--color-primary)" stroke-width="1.5"/>
+              <path d="M9 16l5 5 9-9" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h2 class="contact__success-title">Message sent!</h2>
+          <p class="contact__success-text">
+            Thanks for reaching out. I'll get back to you within 24 hours.
+          </p>
+          <button class="btn btn--ghost" type="button" (click)="resetForm()">
+            Send another message
+          </button>
+        </div>
+
+      } @else {
+        <!-- Contact form -->
+        <form
+          class="contact-form"
+          [formGroup]="form"
+          (ngSubmit)="onSubmit()"
+          novalidate
+          aria-label="Contact form"
+        >
+
+          <!-- Name field -->
+          <div class="field" [class.field--error]="isInvalid('name')">
+            <input
+              class="field__input"
+              type="text"
+              id="name"
+              formControlName="name"
+              placeholder=" "
+              autocomplete="name"
+              [attr.aria-invalid]="isInvalid('name')"
+              aria-describedby="name-error"
+            />
+            <label class="field__label" for="name">Your name</label>
+            @if (isInvalid('name')) {
+              <span class="field__error" id="name-error" role="alert">
+                Please enter your name (at least 2 characters)
+              </span>
+            }
+          </div>
+
+          <!-- Email field -->
+          <div class="field" [class.field--error]="isInvalid('email')">
+            <input
+              class="field__input"
+              type="email"
+              id="email"
+              formControlName="email"
+              placeholder=" "
+              autocomplete="email"
+              [attr.aria-invalid]="isInvalid('email')"
+              aria-describedby="email-error"
+            />
+            <label class="field__label" for="email">Email address</label>
+            @if (isInvalid('email')) {
+              <span class="field__error" id="email-error" role="alert">
+                Please enter a valid email address
+              </span>
+            }
+          </div>
+
+          <!-- Message field -->
+          <div class="field field--textarea" [class.field--error]="isInvalid('message')">
+            <textarea
+              class="field__input field__input--textarea"
+              id="message"
+              formControlName="message"
+              placeholder=" "
+              rows="5"
+              [attr.aria-invalid]="isInvalid('message')"
+              aria-describedby="message-error"
+            ></textarea>
+            <label class="field__label" for="message">Your message</label>
+            @if (isInvalid('message')) {
+              <span class="field__error" id="message-error" role="alert">
+                Please enter a message (at least 10 characters)
+              </span>
+            }
+          </div>
+
+          <button
+            class="btn btn--primary contact-form__submit"
+            type="submit"
+            [disabled]="formStatus() === 'submitting'"
+            [attr.aria-busy]="formStatus() === 'submitting'"
+          >
+            @if (formStatus() === 'submitting') {
+              <span class="contact-form__spinner" aria-hidden="true"></span>
+              Sending…
+            } @else {
+              Send Message
+            }
+          </button>
+
+        </form>
+      }
+
+    </div>
+
+    <!-- Info column -->
+    <aside class="contact__info-col" aria-label="Contact information">
+
+      <div class="contact-info">
+        <h2 class="contact-info__heading">Direct contact</h2>
+
+        <div class="contact-info__items">
+          <div class="contact-info__item">
+            <span class="contact-info__item-label">Email</span>
+            <a href="mailto:neelinihal290@gmail.com" class="contact-info__item-value">
+              neelinihal290&#64;gmail.com
+            </a>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__item-label">Phone</span>
+            <a href="tel:+916302841395" class="contact-info__item-value">
+              +91 630 284 1395
+            </a>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__item-label">Location</span>
+            <span class="contact-info__item-value contact-info__item-value--plain">
+              Hyderabad, India
+            </span>
+          </div>
+          <div class="contact-info__item">
+            <span class="contact-info__item-label">Response time</span>
+            <span class="contact-info__item-value contact-info__item-value--plain">
+              Within 24 hours
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social links -->
+      <div class="social-links" role="list" aria-label="Social media profiles">
+        @for (link of socialLinks; track link.label) {
+          <a
+            class="social-link"
+            [href]="link.href"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="listitem"
+            [attr.aria-label]="link.ariaLabel"
+          >
+            <svg
+              class="social-link__icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+              [innerHTML]="link.icon"
+            ></svg>
+            <span class="social-link__label">{{ link.label }}</span>
+          </a>
+        }
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>

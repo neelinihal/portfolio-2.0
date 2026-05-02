@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+main {
+  min-height: 100dvh;
+  position: relative;
+  z-index: 1;
+}
+
+app-navbar {
+  position: relative;
+  z-index: 10;
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: var(--space-6) var(--page-pad-inline);
+
+  &__inner {
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__copy,
+  &__right {
+    font-size: var(--text-xs);
+    color: var(--color-text-faint);
+    letter-spacing: 0.02em;
+  }
+}

@@ -1,0 +1,248 @@
+// =============================================================================
+// DESIGN TOKENS — Dark Universe v5 (Award Edition)
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // Surfaces — rich, warm, dark
+  // ---------------------------------------------------------------------------
+  --color-bg:              #0d0c0b;
+  --color-surface:         #131211;
+  --color-surface-2:       #171614;
+  --color-surface-offset:  #201f1c;
+  --color-surface-dynamic: #272522;
+  --color-border:          rgba(46, 45, 43, 1);
+  --color-divider:         rgba(30, 29, 27, 1);
+
+  // ---------------------------------------------------------------------------
+  // Text
+  // ---------------------------------------------------------------------------
+  --color-text:       #e8e6e3;
+  --color-text-muted: #8a8884;
+  --color-text-faint: #4a4947;
+
+  // ---------------------------------------------------------------------------
+  // Primary — Electric Teal
+  // ---------------------------------------------------------------------------
+  --color-primary:       #2dd4bf;
+  --color-primary-hover: #14b8a6;
+  --color-primary-dim:   #1a9e8f;
+  --color-primary-dark:  #0f766e;
+  --color-primary-rgb:   45, 212, 191;
+
+  // ---------------------------------------------------------------------------
+  // Alpha composites
+  // ---------------------------------------------------------------------------
+  --color-border-subtle:    rgba(232, 230, 227, 0.06);
+  --color-border-faint:     rgba(232, 230, 227, 0.04);
+  --color-primary-alpha-05: rgba(45, 212, 191, 0.05);
+  --color-primary-alpha-08: rgba(45, 212, 191, 0.08);
+  --color-primary-alpha-10: rgba(45, 212, 191, 0.10);
+  --color-primary-alpha-15: rgba(45, 212, 191, 0.15);
+  --color-primary-alpha-20: rgba(45, 212, 191, 0.20);
+  --color-primary-alpha-30: rgba(45, 212, 191, 0.30);
+
+  // ---------------------------------------------------------------------------
+  // Shadows
+  // ---------------------------------------------------------------------------
+  --shadow-sm:      0 1px 2px rgba(0,0,0,0.5);
+  --shadow-md:      0 4px 20px rgba(0,0,0,0.6), 0 1px 4px rgba(0,0,0,0.4);
+  --shadow-lg:      0 16px 56px rgba(0,0,0,0.75), 0 4px 16px rgba(0,0,0,0.5);
+  --shadow-xl:      0 32px 80px rgba(0,0,0,0.85), 0 8px 24px rgba(0,0,0,0.6);
+  --shadow-glow:    0 0 40px rgba(45, 212, 191, 0.25);
+  --shadow-glow-sm: 0 0 16px rgba(45, 212, 191, 0.30);
+  --shadow-card:    0 0 0 1px rgba(232,230,227,0.06), 0 1px 0 rgba(232,230,227,0.04) inset, 0 8px 32px rgba(0,0,0,0.5);
+  --glow-teal:      0 0 20px rgba(45,212,191,0.30), 0 0 60px rgba(45,212,191,0.15), 0 0 100px rgba(45,212,191,0.05);
+
+  // ---------------------------------------------------------------------------
+  // Border radius
+  // ---------------------------------------------------------------------------
+  --radius-sm:   0.375rem;
+  --radius-md:   0.625rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.25rem;
+  --radius-2xl:  1.75rem;
+  --radius-full: 9999px;
+
+  // ---------------------------------------------------------------------------
+  // Transitions
+  // ---------------------------------------------------------------------------
+  --transition:        200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:   400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  // ---------------------------------------------------------------------------
+  // Spacing (4px base)
+  // ---------------------------------------------------------------------------
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+
+  // ---------------------------------------------------------------------------
+  // Fluid type scale
+  // ---------------------------------------------------------------------------
+  --text-xs:   clamp(0.7rem,   0.65rem + 0.25vw, 0.8rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.65vw, 1.375rem);
+  --text-xl:   clamp(1.375rem, 1.1rem  + 1.2vw,  2rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.75rem);
+  --text-hero: clamp(3.5rem,   0.5rem  + 8.5vw,  9rem);
+
+  // ---------------------------------------------------------------------------
+  // Layout
+  // ---------------------------------------------------------------------------
+  --max-width:        1100px;
+  --section-pad-y:    clamp(var(--space-16), 9vw, var(--space-24));
+  --page-pad-top:     calc(var(--space-16) + var(--space-8));
+  --page-pad-inline:  var(--space-8);
+
+  @media (max-width: 900px) {
+    --page-pad-top:    calc(var(--space-12) + var(--space-6));
+    --page-pad-inline: var(--space-5);
+    --section-pad-y:   clamp(var(--space-12), 7vw, var(--space-16));
+  }
+}
+
+:root {
+  // ---------------------------------------------------------------------------
+  // Surfaces — true dark with warm undertone
+  // ---------------------------------------------------------------------------
+  --color-bg:              #0d0c0b;
+  --color-surface:         #131211;
+  --color-surface-2:       #171614;
+  --color-surface-3:       #1c1b19;
+  --color-surface-offset:  #222120;
+  --color-surface-dynamic: #2a2927;
+  --color-border:          #2e2d2b;
+  --color-divider:         #1e1d1b;
+
+  // ---------------------------------------------------------------------------
+  // Text — high contrast with clear hierarchy
+  // ---------------------------------------------------------------------------
+  --color-text:         #e8e6e3;
+  --color-text-muted:   #8a8884;
+  --color-text-faint:   #4a4947;
+  --color-text-inverse: #0d0c0b;
+
+  // ---------------------------------------------------------------------------
+  // Primary — Electric Teal
+  // ---------------------------------------------------------------------------
+  --color-primary:       #2dd4bf;
+  --color-primary-hover: #14b8a6;
+  --color-primary-dim:   #1a9e8f;
+  --color-primary-dark:  #0f766e;
+  --color-primary-rgb:   45, 212, 191;
+
+  // ---------------------------------------------------------------------------
+  // Accent + Gold
+  // ---------------------------------------------------------------------------
+  --color-accent:        #f97316;
+  --color-accent-subtle: rgba(249, 115, 22, 0.10);
+  --color-gold:          #d4a853;
+  --color-gold-subtle:   rgba(212, 168, 83, 0.10);
+
+  // ---------------------------------------------------------------------------
+  // Semantic alpha composites
+  // ---------------------------------------------------------------------------
+  --color-border-subtle:    rgba(232, 230, 227, 0.06);
+  --color-border-faint:     rgba(232, 230, 227, 0.04);
+  --color-overlay-nav:      rgba(13, 12, 11, 0.88);
+  --color-overlay-mobile:   rgba(13, 12, 11, 0.98);
+  --color-primary-alpha-05: rgba(45, 212, 191, 0.05);
+  --color-primary-alpha-08: rgba(45, 212, 191, 0.08);
+  --color-primary-alpha-10: rgba(45, 212, 191, 0.10);
+  --color-primary-alpha-15: rgba(45, 212, 191, 0.15);
+  --color-primary-alpha-20: rgba(45, 212, 191, 0.20);
+  --color-primary-alpha-30: rgba(45, 212, 191, 0.30);
+
+  // ---------------------------------------------------------------------------
+  // Shadows — deep with teal glow variant
+  // ---------------------------------------------------------------------------
+  --shadow-xs:      0 1px 2px rgba(0,0,0,0.4);
+  --shadow-sm:      0 2px 8px rgba(0,0,0,0.5);
+  --shadow-md:      0 8px 24px rgba(0,0,0,0.6);
+  --shadow-lg:      0 20px 60px rgba(0,0,0,0.7);
+  --shadow-xl:      0 32px 80px rgba(0,0,0,0.85);
+  --shadow-glow:    0 0 40px rgba(45, 212, 191, 0.25);
+  --shadow-glow-sm: 0 0 16px rgba(45, 212, 191, 0.30);
+  --shadow-card:    0 0 0 1px rgba(232,230,227,0.06), 0 1px 0 rgba(232,230,227,0.04) inset, 0 8px 32px rgba(0,0,0,0.5);
+  --glow-teal:      0 0 20px rgba(45,212,191,0.30), 0 0 60px rgba(45,212,191,0.15), 0 0 100px rgba(45,212,191,0.05);
+
+  // ---------------------------------------------------------------------------
+  // Border radius
+  // ---------------------------------------------------------------------------
+  --radius-sm:   0.375rem;
+  --radius-md:   0.625rem;
+  --radius-lg:   1rem;
+  --radius-xl:   1.25rem;
+  --radius-2xl:  1.75rem;
+  --radius-full: 9999px;
+
+  // ---------------------------------------------------------------------------
+  // Transitions
+  // ---------------------------------------------------------------------------
+  --transition:       200ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow:  400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-spring:500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  // ---------------------------------------------------------------------------
+  // Spacing (4px base unit)
+  // ---------------------------------------------------------------------------
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-14: 3.5rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-28: 7rem;
+  --space-32: 8rem;
+
+  // ---------------------------------------------------------------------------
+  // Fluid type scale
+  // ---------------------------------------------------------------------------
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Satoshi', 'Inter', sans-serif;
+
+  --text-xs:   clamp(0.7rem,   0.65rem + 0.25vw, 0.8rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.65vw, 1.375rem);
+  --text-xl:   clamp(1.375rem, 1.1rem  + 1.2vw,  2rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.75rem);
+  --text-hero: clamp(4.5rem,   1rem    + 10vw,   11rem);
+
+  // ---------------------------------------------------------------------------
+  // Layout
+  // ---------------------------------------------------------------------------
+  --max-width:        1100px;
+  --section-pad-y:    clamp(var(--space-16), 9vw, var(--space-24));
+  --page-pad-top:     calc(var(--space-16) + var(--space-8));    // 112px — desktop
+  --page-pad-inline:  var(--space-8);                            // 32px — desktop
+
+  @media (max-width: 900px) {
+    --page-pad-top:    calc(var(--space-12) + var(--space-6));   // 72px — mobile
+    --page-pad-inline: var(--space-5);                           // 20px — mobile
+    --section-pad-y:   clamp(var(--space-12), 7vw, var(--space-16));
+    --text-hero:       clamp(3.5rem, 1rem + 9vw, 11rem);
+  }
+}

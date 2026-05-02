@@ -1,0 +1,75 @@
+<header class="navbar" [class.scrolled]="isScrolled()">
+  <nav class="navbar__inner" role="navigation" aria-label="Main navigation">
+
+    <!-- Logo — NN geometric monogram -->
+    <a class="navbar__logo" routerLink="/" aria-label="Neeli Nihal — Home" (click)="closeMenu()">
+      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="36" height="36" rx="7" fill="var(--color-surface-2)" stroke="var(--color-border)" stroke-width="1"/>
+        <!-- N left -->
+        <path d="M6 27V9H10.2L17 21V9H19V27H14.8L8 15V27H6Z"
+              fill="var(--color-primary)" />
+        <!-- N right (offset) -->
+        <path d="M17 27V9H21.2L28 21V9H30V27H25.8L19 15V27H17Z"
+              fill="var(--color-text)" fill-opacity="0.35"/>
+      </svg>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="navbar__links" role="list">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a
+            class="navbar__link"
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+          >{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <!-- Mobile hamburger -->
+    <button
+      class="navbar__hamburger"
+      [class.open]="isMenuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="isMenuOpen()"
+      aria-label="Toggle navigation menu"
+      type="button"
+    >
+      <span class="bar bar--1"></span>
+      <span class="bar bar--2"></span>
+      <span class="bar bar--3"></span>
+    </button>
+
+  </nav>
+</header>
+
+<!-- Mobile overlay -->
+<div
+  class="mobile-overlay"
+  [@navOverlay]="isMenuOpen() ? 'open' : 'closed'"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Mobile navigation menu"
+  [attr.aria-hidden]="!isMenuOpen()"
+>
+  <nav>
+    <ul class="mobile-overlay__links" role="list">
+      @for (link of navLinks; track link.path) {
+        <li class="mobile-overlay__item">
+          <a
+            class="mobile-overlay__link"
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.exact }"
+            (click)="closeMenu()"
+          >{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+    <div class="mobile-overlay__footer">
+      <a class="btn btn--primary" routerLink="/contact" (click)="closeMenu()">Get in touch</a>
+    </div>
+  </nav>
+</div>

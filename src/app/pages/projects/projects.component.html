@@ -1,0 +1,183 @@
+<div class="projects" @fadeSlideIn>
+
+  <!-- Header -->
+  <div class="projects__header page-wrapper">
+    <p class="section-label">What I've built</p>
+    <h1 class="projects__title" appScramble>Projects</h1>
+    <p class="projects__subtitle">
+      A selection of personal projects and engineering work. Each one solved a
+      real problem — or scratched a curiosity itch at 1 AM.
+    </p>
+  </div>
+
+  <!-- Bento grid -->
+  <div class="projects__grid page-wrapper">
+
+    @for (project of projects; track project.title; let i = $index) {
+      <article
+        #projectCard
+        class="project-card"
+        [class.project-card--featured]="project.featured"
+        [attr.data-index]="i"
+        [attr.data-num]="'0' + (i + 1)"
+        [@cardReveal]="cardStates()[i] || 'hidden'"
+        (mousemove)="onCardMouseMove($event, $event.currentTarget)"
+        (mouseleave)="onCardMouseLeave($event.currentTarget)"
+      >
+        <!-- Number accent + arrow (non-featured only) -->
+        @if (!project.featured) {
+          <span class="project-card__num" aria-hidden="true">0{{ i }}</span>
+          <svg class="project-card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+            <path d="M4 14L14 4M14 4H7M14 4V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        }
+
+        <div class="project-card__inner">
+          <div class="project-card__body">
+            @if (project.featured) {
+              <span class="project-card__featured-badge">Featured Project</span>
+            }
+
+            <h2 class="project-card__title">{{ project.title }}</h2>
+            <p class="project-card__desc">{{ project.description }}</p>
+
+            @if (project.featured) {
+              <p class="project-card__long-desc">{{ project.longDescription }}</p>
+            }
+
+            <div class="project-card__tags">
+              @for (tag of project.tags; track tag) {
+                <span class="tag">{{ tag }}</span>
+              }
+            </div>
+          </div>
+
+          <!-- Screenshot showcase — featured card only -->
+          @if (project.featured && project.screenshots && project.screenshots.length > 0) {
+            <div class="ss-showcase" aria-label="KubeOps platform screenshots">
+
+              <!-- Primary display -->
+              <div class="ss-showcase__primary">
+                <!-- macOS-style browser chrome -->
+                <div class="ss-showcase__chrome" aria-hidden="true">
+                  <div class="ss-showcase__chrome-dots">
+                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--red"></span>
+                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--yellow"></span>
+                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--green"></span>
+                  </div>
+                  <div class="ss-showcase__chrome-bar">
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+                      <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/>
+                      <path d="M6 3v3l2 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
+                    </svg>
+                    <span>eks-ops-center.internal</span>
+                  </div>
+                  <div class="ss-showcase__chrome-actions" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1"/><path d="M5 7h4M7 5v4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
+                  </div>
+                </div>
+
+                <!-- Active image viewport — top-cropped to show nav + hero area -->
+                <div class="ss-showcase__viewport">
+                  @for (shot of project.screenshots; track shot.src; let si = $index) {
+                    <img
+                      class="ss-showcase__img"
+                      [class.active]="activeScreenshot() === si"
+                      [src]="shot.src"
+                      [alt]="shot.caption"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  }
+
+                  <!-- Live badge overlay -->
+                  <div class="ss-showcase__live-badge" aria-hidden="true">
+                    <span class="ss-showcase__live-dot"></span>
+                    LIVE
+                  </div>
+
+                  <!-- Caption overlay strip at bottom -->
+                  <div class="ss-showcase__caption-overlay" aria-live="polite" aria-atomic="true">
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+                      <rect x="1" y="1" width="11" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
+                      <path d="M4 12h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                      <path d="M6.5 9v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+                    </svg>
+                    {{ project.screenshots[activeScreenshot()].caption }}
+                  </div>
+                </div>
+              </div>
+
+              <!-- Thumbnail strip -->
+              <div class="ss-showcase__thumbs" role="tablist" aria-label="Screenshot thumbnails">
+                @for (shot of project.screenshots; track shot.src; let si = $index) {
+                  <button
+                    class="ss-showcase__thumb"
+                    [class.active]="activeScreenshot() === si"
+                    (click)="goToSlide(si)"
+                    role="tab"
+                    [attr.aria-selected]="activeScreenshot() === si"
+                    [attr.aria-label]="'View: ' + shot.caption"
+                    type="button"
+                  >
+                    <img
+                      [src]="shot.src"
+                      [alt]="shot.caption"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                    <div class="ss-showcase__thumb-overlay" aria-hidden="true"></div>
+                  </button>
+                }
+              </div>
+
+            </div>
+          }
+
+          <footer class="project-card__footer">
+            <a
+              [href]="project.githubUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card__link"
+              [attr.aria-label]="'View ' + project.title + ' on GitHub'"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              GitHub
+            </a>
+
+            @if (project.featured) {
+              <div class="project-card__highlights">
+                <span class="project-card__highlight-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  AWS EKS deployed
+                </span>
+                <span class="project-card__highlight-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  AI-powered CLI
+                </span>
+                <span class="project-card__highlight-item">
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  269+ commands logged
+                </span>
+              </div>
+            }
+          </footer>
+        </div>
+      </article>
+    }
+
+  </div>
+
+</div>

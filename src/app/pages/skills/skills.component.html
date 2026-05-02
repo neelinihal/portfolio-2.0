@@ -1,0 +1,48 @@
+﻿<div class="skills" @fadeSlideIn>
+
+  <!-- Header -->
+  <div class="skills__header page-wrapper">
+    <p class="section-label">What I work with</p>
+    <h1 class="skills__title" appScramble>Skills &amp; Expertise</h1>
+    <p class="skills__subtitle">
+      A pragmatic toolkit built from 2+ years of production-grade engineering
+      across microservices, cloud platforms, and DevOps automation.
+    </p>
+  </div>
+
+  <!-- Legend -->
+  <div class="skills__legend page-wrapper">
+    <span class="legend-item legend-item--expert">Expert</span>
+    <span class="legend-item legend-item--advanced">Advanced</span>
+    <span class="legend-item legend-item--proficient">Proficient</span>
+  </div>
+
+  <!-- Category sections -->
+  <div class="skills__body page-wrapper">
+    @for (category of categories; track category.name; let i = $index) {
+      <section
+        #categoryCard
+        class="skill-section"
+        [attr.data-index]="i"
+        [@skillCardReveal]="cardStates()[i] || 'hidden'"
+      >
+        <div class="skill-section__header">
+          <h2 class="skill-section__name">{{ category.name }}</h2>
+          <p class="skill-section__desc">{{ category.description }}</p>
+        </div>
+
+        <div class="skill-chips" role="list">
+          @for (skill of category.skills; track skill.name) {
+            <div class="skill-chip skill-chip--{{ skill.level | lowercase }}" role="listitem">
+              <img [src]="skill.iconUrl" [alt]="skill.name"
+                   width="20" height="20" loading="lazy" class="skill-chip__icon" />
+              <span class="skill-chip__name">{{ skill.name }}</span>
+              <span class="skill-chip__dot" [attr.aria-label]="skill.level"></span>
+            </div>
+          }
+        </div>
+      </section>
+    }
+  </div>
+
+</div>

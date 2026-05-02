@@ -1,0 +1,942 @@
+- Building...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:45:49:
+      45 │     { name: 'Java',       icon: 'java',          color: 'f89820' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:46:49:
+      46 │     { name: 'Spring',     icon: 'spring',        color: '6DB33F' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:47:49:
+      47 │     { name: 'Docker',     icon: 'docker',        color: '2496ED' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:48:49:
+      48 │     { name: 'Kubernetes', icon: 'kubernetes',    color: '326CE5' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:49:49:
+      49 │     { name: 'GCP',        icon: 'googlecloud',   color: '4285F4' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:50:49:
+      50 │     { name: 'AWS',        icon: 'amazonaws',     color: 'FF9900' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:51:49:
+      51 │     { name: 'Jenkins',    icon: 'jenkins',       color: 'D24939' },
+         ╵                                                  ~~~~~
+
+
+X [ERROR] TS2353: Object literal may only specify known properties, and 'color' does not exist in type 'TechBadge'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:52:49:
+      52 │     { name: 'Kafka',      icon: 'apachekafka',   color: 'a0a0a0' },
+         ╵                                                  ~~~~~
+
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'constellationBadges' does not exist on type 'HomeComponent'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:53:23:
+      53 │         @for (badge of constellationBadges; track badge.name; let ...
+         ╵                        ~~~~~~~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:75:57:
+      75 │         <div class="stat-card" role="listitem" appReveal [delay]="0">
+         ╵                                                          ~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:79:57:
+      79 │ ...    <div class="stat-card" role="listitem" appReveal [delay]="80">
+         ╵                                                         ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:83:57:
+      83 │ ...   <div class="stat-card" role="listitem" appReveal [delay]="160">
+         ╵                                                        ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:87:57:
+      87 │ ...   <div class="stat-card" role="listitem" appReveal [delay]="240">
+         ╵                                                        ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'visualBadges' does not exist on type 'HomeComponent'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:121:25:
+      121 │           @for (badge of visualBadges; track badge.name) {
+          ╵                          ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:130:63:
+      130 │ ... routerLink="/about" class="quicknav-item" appReveal [delay]="0">
+          ╵                                                         ~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:136:64:
+      136 │ ...outerLink="/skills" class="quicknav-item" appReveal [delay]="80">
+          ╵                                                        ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:142:65:
+      142 │ ...terLink="/contact" class="quicknav-item" appReveal [delay]="160">
+          ╵                                                       ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:22:15:
+      22 │   templateUrl: './home.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:75:57:
+      75 │         <div class="stat-card" role="listitem" appReveal [delay]="0">
+         ╵                                                          ~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:79:57:
+      79 │ ...    <div class="stat-card" role="listitem" appReveal [delay]="80">
+         ╵                                                         ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:83:57:
+      83 │ ...   <div class="stat-card" role="listitem" appReveal [delay]="160">
+         ╵                                                        ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'div'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:87:57:
+      87 │ ...   <div class="stat-card" role="listitem" appReveal [delay]="240">
+         ╵                                                        ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:130:63:
+      130 │ ... routerLink="/about" class="quicknav-item" appReveal [delay]="0">
+          ╵                                                         ~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:136:64:
+      136 │ ...outerLink="/skills" class="quicknav-item" appReveal [delay]="80">
+          ╵                                                        ~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG8002: Can't bind to 'delay' since it isn't a known property of 'a'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.html:142:65:
+      142 │ ...terLink="/contact" class="quicknav-item" appReveal [delay]="160">
+          ╵                                                       ~~~~~~~~~~~~~
+
+  Error occurs in the template of component HomeComponent.
+
+    src/app/pages/home/home.component.ts:113:15:
+      113 │   templateUrl: './home.component.html',
+          ╵                ~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'HomeComponent'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:28:13:
+      28 │ export class HomeComponent implements OnInit, OnDestroy {
+         ╵              ~~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'HomeComponent'. [plugin angular-compiler]
+
+    src/app/pages/home/home.component.ts:118:13:
+      118 │ export class HomeComponent implements OnInit, OnDestroy {
+          ╵              ~~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "HomeComponent"
+
+    src/app/pages/home/home.component.ts:270:13:
+      270 │ export class HomeComponent {
+          ╵              ~~~~~~~~~~~~~
+
+  The name "HomeComponent" was originally exported here:
+
+    src/app/pages/home/home.component.ts:42:13:
+      42 │ export class HomeComponent {
+         ╵              ~~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "HomeComponent" has already been declared
+
+    src/app/pages/home/home.component.ts:270:13:
+      270 │ export class HomeComponent {
+          ╵              ~~~~~~~~~~~~~
+
+  The symbol "HomeComponent" was originally declared here:
+
+    src/app/pages/home/home.component.ts:42:13:
+      42 │ export class HomeComponent {
+         ╵              ~~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:27:13:
+      27 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] Multiple exports with the same name "AppComponent"
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The name "AppComponent" was originally exported here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] The symbol "AppComponent" has already been declared
+
+    src/app/app.component.ts:28:13:
+      28 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+  The symbol "AppComponent" was originally declared here:
+
+    src/app/app.component.ts:9:13:
+      9 │ export class AppComponent {
+        ╵              ~~~~~~~~~~~~
+
+
+X [ERROR] TS2300: Duplicate identifier 'AppComponent'. [plugin angular-compiler]
+
+    src/app/app.component.ts:49:13:
+      49 │ export class AppComponent {
+         ╵              ~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+X [ERROR] NG9: Property 'levelToPercent' does not exist on type 'SkillsComponent'. [plugin angular-compiler]
+
+    src/app/pages/skills/skills.component.html:40:68:
+      40 │ ...tes()[i] === 'visible' ? levelToPercent(skill.level) + '%' : '0%'"
+         ╵                             ~~~~~~~~~~~~~~
+
+  Error occurs in the template of component SkillsComponent.
+
+    src/app/pages/skills/skills.component.ts:32:15:
+      32 │   templateUrl: './skills.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'levelToPercent' does not exist on type 'SkillsComponent'. [plugin angular-compiler]
+
+    src/app/pages/skills/skills.component.html:41:43:
+      41 │ ...                [attr.aria-valuenow]="levelToPercent(skill.level)"
+         ╵                                          ~~~~~~~~~~~~~~
+
+  Error occurs in the template of component SkillsComponent.
+
+    src/app/pages/skills/skills.component.ts:32:15:
+      32 │   templateUrl: './skills.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+X [ERROR] NG9: Property 'nativeElement' does not exist on type 'HTMLElement'. [plugin angular-compiler]
+
+    src/app/pages/projects/projects.component.html:23:57:
+      23 │ ...  (mousemove)="onCardMouseMove($event, projectCard.nativeElement)"
+         ╵                                                       ~~~~~~~~~~~~~
+
+  Error occurs in the template of component ProjectsComponent.
+
+    src/app/pages/projects/projects.component.ts:35:15:
+      35 │   templateUrl: './projects.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG9: Property 'nativeElement' does not exist on type 'HTMLElement'. [plugin angular-compiler]
+
+    src/app/pages/projects/projects.component.html:24:51:
+      24 │         (mouseleave)="onCardMouseLeave(projectCard.nativeElement)"
+         ╵                                                    ~~~~~~~~~~~~~
+
+  Error occurs in the template of component ProjectsComponent.
+
+    src/app/pages/projects/projects.component.ts:35:15:
+      35 │   templateUrl: './projects.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+X [ERROR] NG5: Argument of type 'EventTarget | null' is not assignable to parameter of type 'HTMLElement'.
+  Type 'null' is not assignable to type 'HTMLElement'. [plugin angular-compiler]
+
+    src/app/pages/projects/projects.component.html:23:52:
+      23 │         (mousemove)="onCardMouseMove($event, $event.currentTarget)"
+         ╵                                                     ~~~~~~~~~~~~~
+
+  Error occurs in the template of component ProjectsComponent.
+
+    src/app/pages/projects/projects.component.ts:35:15:
+      35 │   templateUrl: './projects.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+X [ERROR] NG5: Argument of type 'EventTarget | null' is not assignable to parameter of type 'HTMLElement'.
+  Type 'null' is not assignable to type 'HTMLElement'. [plugin angular-compiler]
+
+    src/app/pages/projects/projects.component.html:24:46:
+      24 │         (mouseleave)="onCardMouseLeave($event.currentTarget)"
+         ╵                                               ~~~~~~~~~~~~~
+
+  Error occurs in the template of component ProjectsComponent.
+
+    src/app/pages/projects/projects.component.ts:35:15:
+      35 │   templateUrl: './projects.component.html',
+         ╵                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+
+- Changes detected. Rebuilding...
+

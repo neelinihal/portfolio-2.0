@@ -1,0 +1,128 @@
+<div class="about" @fadeSlideIn>
+
+  <!-- =========================================================
+       HEADER
+  ========================================================= -->
+  <div class="about__header page-wrapper">
+    <p class="section-label">Who I am</p>
+    <h1 class="about__title" appScramble>About Me</h1>
+  </div>
+
+  <!-- =========================================================
+       BIO SECTION — two-column
+  ========================================================= -->
+  <section class="bio page-wrapper" aria-label="Biography">
+    <div class="bio__portrait" aria-hidden="true">
+      <div class="bio__portrait-frame">
+        <div class="bio__portrait-placeholder">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="1.5"/>
+            <path d="M6 42c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="bio__portrait-badge">
+          <span class="bio__portrait-badge-dot"></span>
+          Available for opportunities
+        </div>
+      </div>
+    </div>
+
+    <div class="bio__content">
+      <h2 class="bio__heading">
+        Building systems that scale,<br />
+        <em>shipping things that last</em>
+      </h2>
+
+      <p class="bio__text">
+        I'm Neeli Nihal, a Backend and DevOps Engineer based in Hyderabad, India.
+        With 2+ years of hands-on experience, I specialize in designing cloud-native
+        microservices with Spring Boot, orchestrating containerized workloads on
+        Kubernetes (EKS, GKE), and automating CI/CD pipelines that actually work
+        at 2 AM.
+      </p>
+
+      <p class="bio__text">
+        Currently at Wipro Technologies, I've built systems handling 500+ concurrent
+        users, cut deployment times in half, and set up observability stacks that
+        compress incident detection from 15 minutes to under 3. I care deeply
+        about reliability, automation, and systems that don't page you on weekends.
+      </p>
+
+      <p class="bio__personality">
+        Outside engineering — I'm the person who builds a Kubernetes management
+        platform as a weekend project and genuinely enjoys debugging production
+        issues because every crash has a story.
+      </p>
+
+      <div class="bio__details">
+        <div class="bio__detail-item">
+          <span class="bio__detail-label">Location</span>
+          <span class="bio__detail-value">Hyderabad, India</span>
+        </div>
+        <div class="bio__detail-item">
+          <span class="bio__detail-label">Email</span>
+          <a href="mailto:neelinihal290@gmail.com" class="bio__detail-value bio__detail-value--link">
+            neelinihal290&#64;gmail.com
+          </a>
+        </div>
+        <div class="bio__detail-item">
+          <span class="bio__detail-label">Phone</span>
+          <a href="tel:+916302841395" class="bio__detail-value bio__detail-value--link">
+            +91 630 284 1395
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       EXPERIENCE TIMELINE
+  ========================================================= -->
+  <section class="timeline-section page-wrapper" aria-label="Work experience">
+    <div class="timeline-section__header">
+      <p class="section-label">Career</p>
+      <h2 class="timeline-section__title">Work Experience</h2>
+    </div>
+
+    <div class="timeline" role="list">
+      @for (exp of experiences; track exp.company; let i = $index) {
+        <article
+          #timelineItem
+          class="timeline__item"
+          role="listitem"
+          [attr.data-index]="i"
+          [@cardReveal]="timelineStates()[i] || 'hidden'"
+        >
+          <div class="timeline__marker" aria-hidden="true">
+            <div class="timeline__dot" [class.current]="exp.current"></div>
+            @if (!$last) {
+              <div class="timeline__line"></div>
+            }
+          </div>
+
+          <div class="timeline__content">
+            <header class="timeline__meta">
+              <div class="timeline__title-group">
+                <h3 class="timeline__role">{{ exp.role }}</h3>
+                @if (exp.current) {
+                  <span class="timeline__badge">Current</span>
+                }
+              </div>
+              <p class="timeline__company">
+                {{ exp.company }} · {{ exp.location }}
+              </p>
+              <p class="timeline__period">{{ exp.period }}</p>
+            </header>
+
+            <ul class="timeline__highlights" role="list">
+              @for (highlight of exp.highlights; track highlight) {
+                <li class="timeline__highlight">{{ highlight }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+</div>

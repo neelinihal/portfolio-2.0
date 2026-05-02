@@ -1,0 +1,923 @@
+Initial chunk files | Names              |  Raw size
+polyfills.js        | polyfills          |  88.09 kB | 
+main.js             | main               |  40.40 kB | 
+styles.css          | styles             |   7.51 kB | 
+chunk-YGYTJ2IV.js   | -                  |   2.46 kB | 
+
+                    | Initial total      | 138.46 kB
+
+Lazy chunk files    | Names              |  Raw size
+chunk-LH7TBPSN.js   | projects-component |  31.74 kB | 
+chunk-4BUPFYJY.js   | contact-component  |  22.32 kB | 
+chunk-6SC22LB6.js   | about-component    |  20.24 kB | 
+chunk-YYIN3PZO.js   | skills-component   |  13.51 kB | 
+
+Application bundle generation complete. [7.415 seconds]
+
+Watch mode enabled. Watching for file changes...
+  ➜  Local:   http://localhost:59788/
+  ➜  press h + enter to show help
+
+No output file changes.
+
+Application bundle generation complete. [1.769 seconds]
+
+Application bundle generation failed. [0.456 seconds]
+
+Initial chunk files | Names              |  Raw size
+polyfills.js        | polyfills          |  88.09 kB | 
+main.js             | main               |  40.54 kB | 
+styles.css          | styles             |   7.51 kB | 
+chunk-YGYTJ2IV.js   | -                  |   2.46 kB | 
+
+                    | Initial total      | 138.60 kB
+
+Lazy chunk files    | Names              |  Raw size
+chunk-LH7TBPSN.js   | projects-component |  31.74 kB | 
+chunk-4BUPFYJY.js   | contact-component  |  22.32 kB | 
+chunk-6SC22LB6.js   | about-component    |  20.24 kB | 
+chunk-YYIN3PZO.js   | skills-component   |  13.51 kB | 
+
+Application bundle generation complete. [0.385 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 40.54 kB | 
+
+Application bundle generation complete. [0.232 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 40.54 kB | 
+
+Application bundle generation complete. [0.224 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 40.79 kB | 
+
+Application bundle generation complete. [0.426 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 40.73 kB | 
+
+Application bundle generation complete. [1.032 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-HXKUXOK3.js   | skills-component | 15.06 kB | 
+
+Application bundle generation complete. [0.846 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-WEWUI7O6.js   | skills-component | 15.05 kB | 
+
+Application bundle generation complete. [0.319 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-HF2WUVDK.js   | skills-component | 14.81 kB | 
+
+Application bundle generation complete. [0.379 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-2I5TZAWN.js   | skills-component | 14.81 kB | 
+
+Application bundle generation complete. [0.189 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-Q7ZMLPWD.js   | skills-component | 14.87 kB | 
+
+Application bundle generation complete. [0.387 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-TP5VAVRY.js   | skills-component | 14.81 kB | 
+
+Application bundle generation complete. [0.250 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-XSR7DSWW.js   | skills-component | 14.88 kB | 
+
+Application bundle generation complete. [0.171 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.73 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-XDDSDF72.js   | skills-component | 14.82 kB | 
+
+Application bundle generation complete. [0.342 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-CYQG3VML.js   | projects-component | 31.86 kB | 
+
+Application bundle generation complete. [0.291 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-LPZYWCAF.js   | projects-component | 33.63 kB | 
+
+Application bundle generation complete. [0.245 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-I7RURMJ7.js   | projects-component | 34.10 kB | 
+
+Application bundle generation complete. [0.261 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-XXNTSJJ6.js   | projects-component | 34.30 kB | 
+
+Application bundle generation complete. [0.422 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-3RIHPQDJ.js   | projects-component | 34.50 kB | 
+
+Application bundle generation complete. [0.353 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-7B6NZR4S.js   | projects-component | 34.50 kB | 
+
+Application bundle generation complete. [0.441 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-IUYYZXBY.js   | projects-component | 34.50 kB | 
+
+Application bundle generation complete. [1.127 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-VN7AJW2T.js   | projects-component | 34.52 kB | 
+
+Application bundle generation complete. [0.458 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.73 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-VU7GNQVO.js   | projects-component | 34.12 kB | 
+
+Application bundle generation complete. [0.392 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles |  7.51 kB | 
+
+Application bundle generation complete. [0.131 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles |  7.45 kB | 
+
+Application bundle generation complete. [0.144 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 41.10 kB | 
+
+Application bundle generation complete. [0.314 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 40.98 kB | 
+
+Application bundle generation complete. [0.188 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 40.98 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-LAYDBMPT.js   | about-component | 20.12 kB | 
+
+Application bundle generation complete. [0.252 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 40.98 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-EX2U7HKY.js   | about-component | 20.12 kB | 
+
+Application bundle generation complete. [0.285 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 40.98 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-JLMDJYIU.js   | about-component | 20.12 kB | 
+
+Application bundle generation complete. [0.163 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 40.98 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-JFTERMJF.js   | contact-component | 22.18 kB | 
+
+Application bundle generation complete. [0.335 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 40.98 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-6A46GFOQ.js   | projects-component | 34.12 kB | 
+chunk-XHSWCU4M.js   | skills-component   | 14.82 kB | 
+
+Application bundle generation complete. [0.731 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 40.98 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-OUBTIHBO.js   | skills-component | 14.83 kB | 
+
+Application bundle generation complete. [0.307 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles |  7.75 kB | 
+
+Application bundle generation complete. [0.105 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 41.94 kB | 
+
+Application bundle generation complete. [0.400 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 42.17 kB | 
+
+Application bundle generation complete. [0.173 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 42.17 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-ZSTIJGYU.js   | about-component | 20.15 kB | 
+
+Application bundle generation complete. [0.235 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 42.17 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-4MCHG7EH.js   | skills-component | 15.30 kB | 
+
+Application bundle generation complete. [0.166 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 42.17 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-UHF554TD.js   | projects-component | 34.63 kB | 
+
+Application bundle generation complete. [0.259 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 42.17 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-43HLGCMB.js   | contact-component | 22.19 kB | 
+
+Application bundle generation complete. [0.312 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles |  7.67 kB | 
+
+Application bundle generation complete. [0.096 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 10.48 kB | 
+
+Application bundle generation complete. [0.080 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 15.99 kB | 
+
+Application bundle generation complete. [0.092 seconds]
+
+HMR update sent to client(s).
+Application bundle generation failed. [0.450 seconds]
+
+Application bundle generation failed. [0.311 seconds]
+
+Application bundle generation failed. [0.181 seconds]
+
+Application bundle generation failed. [0.249 seconds]
+
+Application bundle generation failed. [0.214 seconds]
+
+Application bundle generation failed. [0.242 seconds]
+
+Application bundle generation failed. [0.473 seconds]
+
+Application bundle generation failed. [0.264 seconds]
+
+Initial chunk files | Names              |  Raw size
+polyfills.js        | polyfills          |  88.09 kB | 
+main.js             | main               |  58.76 kB | 
+styles.css          | styles             |  15.99 kB | 
+chunk-YGYTJ2IV.js   | -                  |   2.46 kB | 
+
+                    | Initial total      | 165.30 kB
+
+Lazy chunk files    | Names              |  Raw size
+chunk-UHF554TD.js   | projects-component |  34.63 kB | 
+chunk-43HLGCMB.js   | contact-component  |  22.19 kB | 
+chunk-ZSTIJGYU.js   | about-component    |  20.15 kB | 
+chunk-4MCHG7EH.js   | skills-component   |  15.30 kB | 
+
+Application bundle generation complete. [0.240 seconds]
+
+Page reload sent to client(s).
+Application bundle generation failed. [0.253 seconds]
+
+Initial chunk files | Names              |  Raw size
+polyfills.js        | polyfills          |  88.09 kB | 
+main.js             | main               |  58.76 kB | 
+styles.css          | styles             |  15.99 kB | 
+chunk-YGYTJ2IV.js   | -                  |   2.46 kB | 
+
+                    | Initial total      | 165.30 kB
+
+Lazy chunk files    | Names              |  Raw size
+chunk-UHF554TD.js   | projects-component |  34.63 kB | 
+chunk-43HLGCMB.js   | contact-component  |  22.19 kB | 
+chunk-ZSTIJGYU.js   | about-component    |  20.15 kB | 
+chunk-O2S6BNER.js   | skills-component   |  16.12 kB | 
+
+Application bundle generation complete. [0.240 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 58.76 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-ELRHJCPS.js   | skills-component | 18.28 kB | 
+
+Application bundle generation complete. [0.185 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 58.76 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-J5K4OTRP.js   | skills-component | 18.17 kB | 
+
+Application bundle generation complete. [0.200 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 58.76 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-EE3RHVIB.js   | projects-component | 35.16 kB | 
+
+Application bundle generation complete. [0.385 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 58.76 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-J2RGPXMG.js   | projects-component | 35.28 kB | 
+
+Application bundle generation complete. [0.324 seconds]
+
+Page reload sent to client(s).
+Application bundle generation failed. [0.220 seconds]
+
+Application bundle generation failed. [0.308 seconds]
+
+Initial chunk files | Names              |  Raw size
+polyfills.js        | polyfills          |  88.09 kB | 
+main.js             | main               |  58.76 kB | 
+styles.css          | styles             |  15.99 kB | 
+chunk-YGYTJ2IV.js   | -                  |   2.46 kB | 
+
+                    | Initial total      | 165.30 kB
+
+Lazy chunk files    | Names              |  Raw size
+chunk-MAZNBUFT.js   | projects-component |  36.02 kB | 
+chunk-43HLGCMB.js   | contact-component  |  22.19 kB | 
+chunk-ZSTIJGYU.js   | about-component    |  20.15 kB | 
+chunk-J5K4OTRP.js   | skills-component   |  18.17 kB | 
+
+Application bundle generation complete. [0.375 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 58.76 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-HXWQHQFR.js   | contact-component | 21.98 kB | 
+
+Application bundle generation complete. [0.426 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 59.23 kB | 
+
+Application bundle generation complete. [0.142 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 59.87 kB | 
+
+Application bundle generation complete. [0.112 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.41 kB | 
+
+Application bundle generation complete. [0.114 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.49 kB | 
+
+Application bundle generation complete. [0.111 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 62.76 kB | 
+
+Application bundle generation complete. [0.281 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 62.76 kB | 
+
+Application bundle generation complete. [0.554 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 64.66 kB | 
+
+Application bundle generation complete. [0.260 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 67.21 kB | 
+
+Application bundle generation complete. [0.150 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.37 kB | 
+
+Application bundle generation complete. [0.123 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 17.04 kB | 
+
+Application bundle generation complete. [0.118 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 77.68 kB | 
+
+Application bundle generation complete. [0.337 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.68 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-NQHWAHGG.js   | about-component | 22.41 kB | 
+
+Application bundle generation complete. [0.350 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.68 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-K3UC27CP.js   | about-component | 22.43 kB | 
+
+Application bundle generation complete. [0.213 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.68 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-XPZDADF2.js   | about-component | 23.29 kB | 
+
+Application bundle generation complete. [0.259 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.68 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-FZWBXKBD.js   | about-component | 23.34 kB | 
+
+Application bundle generation complete. [0.519 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.68 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-ETIL4ICE.js   | about-component | 23.41 kB | 
+
+Application bundle generation complete. [0.457 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 77.68 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-GXSS2LSY.js   | about-component  | 21.21 kB | 
+chunk-QI6NKUMF.js   | skills-component | 18.20 kB | 
+chunk-HVRCT3PK.js   | -                |  2.17 kB | 
+
+Application bundle generation complete. [0.588 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.81 kB | 
+chunk-24XZ7WHJ.js   | -                  |  1.88 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-QGSQTVMG.js   | projects-component | 36.08 kB | 
+
+Application bundle generation complete. [0.829 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 75.81 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-TPCJFEZD.js   | skills-component | 18.26 kB | 
+
+Application bundle generation complete. [0.336 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 75.81 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-PJ2Q4Z4Z.js   | skills-component | 18.28 kB | 
+
+Application bundle generation complete. [0.242 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 75.81 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-HHZ27JQL.js   | skills-component | 18.30 kB | 
+
+Application bundle generation complete. [0.226 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.81 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-4HEUCMH6.js   | projects-component | 36.16 kB | 
+
+Application bundle generation complete. [0.246 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.81 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-ALIYGUIC.js   | projects-component | 36.19 kB | 
+
+Application bundle generation complete. [0.620 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.81 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-75UIPQA4.js   | projects-component | 36.65 kB | 
+
+Application bundle generation complete. [0.397 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.81 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-BGBCPBFO.js   | projects-component | 36.67 kB | 
+
+Application bundle generation complete. [0.425 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 75.81 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-7OZWRDNP.js   | contact-component | 22.01 kB | 
+
+Application bundle generation complete. [0.495 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 75.81 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-RMVAFZEO.js   | contact-component | 22.08 kB | 
+
+Application bundle generation complete. [0.349 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 75.81 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-TARJDSZC.js   | contact-component | 22.73 kB | 
+
+Application bundle generation complete. [0.428 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 75.81 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-CFEO2JTS.js   | contact-component | 23.06 kB | 
+
+Application bundle generation complete. [0.359 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 75.81 kB | 
+
+Application bundle generation complete. [0.416 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.97 kB | 
+
+Application bundle generation complete. [0.219 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.90 kB | 
+
+Application bundle generation complete. [0.599 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.40 kB | 
+chunk-B6CZJFT4.js   | -                  |  2.44 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-3QZTLUTF.js   | projects-component | 36.67 kB | 
+chunk-IYAKGEWA.js   | contact-component  | 23.06 kB | 
+chunk-2LHXF2TZ.js   | about-component    | 21.21 kB | 
+chunk-3C5KH23V.js   | skills-component   | 18.30 kB | 
+
+Application bundle generation complete. [0.896 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 75.51 kB | 
+
+Application bundle generation complete. [0.337 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 75.52 kB | 
+
+Application bundle generation complete. [0.445 seconds]
+
+Page reload sent to client(s).
+
+No output file changes.
+
+Application bundle generation complete. [2.392 seconds]
+
+Initial chunk files | Names  | Raw size
+styles.css          | styles | 16.90 kB | 
+
+Application bundle generation complete. [0.503 seconds]
+
+HMR update sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 75.52 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-E7FA6I5G.js   | about-component | 21.21 kB | 
+
+Application bundle generation complete. [0.552 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 75.52 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-JHJR77GE.js   | about-component | 21.21 kB | 
+
+Application bundle generation complete. [0.586 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 75.52 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-XCLTAQJY.js   | about-component | 21.24 kB | 
+
+Application bundle generation complete. [0.694 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 75.52 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-R4VT22LF.js   | projects-component | 36.70 kB | 
+chunk-2SP7AYQL.js   | skills-component   | 18.33 kB | 
+
+Application bundle generation complete. [1.515 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 75.55 kB | 
+
+Application bundle generation complete. [0.902 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 76.02 kB | 
+
+Application bundle generation complete. [0.730 seconds]
+
+Page reload sent to client(s).
+12:18:16 pm [vite] ✨ new dependencies optimized: rxjs/operators
+12:18:16 pm [vite] ✨ optimized dependencies changed. reloading
+Initial chunk files | Names            | Raw size
+main.js             | main             | 76.02 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-M7V6Q6KL.js   | skills-component | 18.13 kB | 
+
+Application bundle generation complete. [0.673 seconds]
+
+Page reload sent to client(s).
+
+No output file changes.
+
+Application bundle generation complete. [0.453 seconds]
+
+Initial chunk files | Names            | Raw size
+main.js             | main             | 76.02 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-2CYEOO3G.js   | skills-component | 18.01 kB | 
+
+Application bundle generation complete. [0.562 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names            | Raw size
+main.js             | main             | 76.02 kB | 
+
+Lazy chunk files    | Names            | Raw size
+chunk-SPIAFTNO.js   | skills-component | 15.89 kB | 
+
+Application bundle generation complete. [0.355 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 76.02 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-FKY6CHO6.js   | projects-component | 36.70 kB | 
+chunk-I2ZGDNHM.js   | about-component    | 21.24 kB | 
+
+Application bundle generation complete. [1.450 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names | Raw size
+main.js             | main  | 77.36 kB | 
+
+Application bundle generation complete. [0.341 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names           | Raw size
+main.js             | main            | 77.36 kB | 
+
+Lazy chunk files    | Names           | Raw size
+chunk-3WQYFAYZ.js   | about-component | 21.62 kB | 
+
+Application bundle generation complete. [0.318 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 77.36 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-MKQHLDE6.js   | projects-component | 36.24 kB | 
+
+Application bundle generation complete. [0.812 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 77.36 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-ELKCDQWK.js   | projects-component | 36.25 kB | 
+
+Application bundle generation complete. [0.400 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names              | Raw size
+main.js             | main               | 77.36 kB | 
+
+Lazy chunk files    | Names              | Raw size
+chunk-HVKTCKLY.js   | projects-component | 36.25 kB | 
+
+Application bundle generation complete. [0.392 seconds]
+
+Page reload sent to client(s).
+Initial chunk files | Names             | Raw size
+main.js             | main              | 77.36 kB | 
+
+Lazy chunk files    | Names             | Raw size
+chunk-RJYSVMHL.js   | contact-component | 23.99 kB | 
+
+Application bundle generation complete. [0.386 seconds]
+
+Page reload sent to client(s).
+
+No output file changes.
+
+Application bundle generation complete. [1.718 seconds]
+
