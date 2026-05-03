@@ -24,13 +24,35 @@ export interface ProjectMetric {
   delta?: string; // e.g. "↓ 40%"
 }
 
+export interface EngineeringDecision {
+  title: string;
+  detail: string;
+}
+
+export interface Challenge {
+  problem: string;
+  solution: string;
+  outcome: string;
+}
+
+export interface TechStackGroup {
+  category: string;
+  items: string[];
+}
+
 export interface Project {
   title: string;
-  tagline: string;             // One-line signal: what problem it solves
-  description: string;         // Problem statement
-  longDescription: string;     // Solution + architecture detail
-  architectureNote?: string;   // Key design decision / tradeoff
-  metrics?: ProjectMetric[];   // Quantified outcomes
+  tagline: string;
+  description: string;
+  longDescription: string;
+  architectureNote?: string;
+  architectureFlow?: string[];          // Numbered request-flow steps
+  engineeringDecisions?: EngineeringDecision[];
+  challenges?: Challenge[];
+  cicd?: string;
+  observability?: string;
+  techStackGroups?: TechStackGroup[];
+  metrics?: ProjectMetric[];
   tags: string[];
   githubUrl: string;
   featured: boolean;
@@ -59,37 +81,79 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
 
   readonly projects: Project[] = [
     {
-      title: 'KubeOps Platform',
-      tagline: 'Production Kubernetes operations platform — real-time cluster control, AI diagnostics, and full audit trail on AWS EKS.',
+      title: 'KubeOps — AI-Powered Kubernetes Management Platform',
+      tagline: 'Production Kubernetes operations platform: secure browser-based cluster control, AI-driven diagnostics, and full audit trail on AWS EKS.',
       description:
-        'Operating EKS clusters at scale required constant kubectl context-switching, no unified view across namespaces, and reactive incident response with no AI assistance. Engineers diagnosed OOMKilled pods and CrashLoopBackoff failures manually, correlating logs across tools. No audit trail existed for cluster mutations.',
+        'Operating EKS clusters at scale required constant kubectl context-switching, no unified cross-namespace observability, and reactive incident response with zero AI assistance. Engineers diagnosed OOMKilled pods and CrashLoopBackoff failures manually, correlating logs across disconnected tools. Cluster mutations had no audit trail and no access control beyond raw kubeconfig.',
       longDescription:
-        'Built a production-grade Kubernetes operations platform on AWS EKS. Architecture: Angular SPA → Spring Boot REST API → Kubernetes Java Client (fabric8) → EKS control plane. ' +
-        'The Spring Boot backend authenticates against the EKS API server using in-cluster ServiceAccount RBAC (least-privilege: get/list/watch on pods, deployments, events; exec only on explicitly allowlisted namespaces). ' +
-        'All kubectl-equivalent operations (scale, restart, rollout, exec) are executed server-side — the browser never touches kubeconfig. ' +
-        'Hazelcast in-memory grid runs embedded in Spring Boot across all replicas, caching cluster state (pod list, resource metrics, events) with TTL-based invalidation — reduces Kubernetes API server load by eliminating per-request LIST calls. ' +
-        'NVIDIA NIM reasoning model is wired directly into the Spring Boot service layer: on pod failure events, the platform sends structured context (pod status, recent events, resource limits, OOM delta) to NIM and returns a ranked diagnosis with suggested kubectl remediation steps. ' +
-        'PostgreSQL (RDS) persists the full execution history — every command, its namespace target, user identity, timestamp, and response status. ' +
-        'Deployed inside a private VPC: EKS node group in private subnets, NGINX Ingress Controller fronted by an AWS ALB, Spring Boot pods run as non-root with read-only root filesystem. TLS terminated at ALB.',
-      architectureNote:
-        'Chose Hazelcast over Redis for cluster-state caching because Spring Boot runs multi-replica on EKS — Hazelcast embeds in-process and forms a peer-to-peer cluster automatically via Kubernetes discovery (hazelcast-kubernetes plugin uses the API server to find member pods). This avoids a separate Redis deployment, eliminates the network hop to an external cache, and gives topology-aware partition ownership across AZs. Redis would have required managing replication, eviction policy, and an extra dependency in the Helm chart. The tradeoff: Hazelcast increases JVM heap pressure per pod, which we bounded by setting explicit near-cache eviction and max-size policies.',
+        'End-to-end Kubernetes operations platform built on AWS EKS. Spring Boot backend authenticates against the EKS API server via in-cluster ServiceAccount (RBAC: least-privilege get/list/watch on pods/deployments/events; exec scoped to allowlisted namespaces). All kubectl-equivalent operations execute server-side — the browser never touches kubeconfig. Hazelcast in-memory grid runs embedded across Spring Boot replicas, caching cluster state via Kubernetes peer discovery. NVIDIA NIM reasoning model receives structured failure context from the backend and returns ranked diagnosis with remediation steps. Full execution history persisted to RDS PostgreSQL. Deployed inside a private VPC: EKS nodes in private subnets, AWS ALB as ingress, pods run non-root with read-only root filesystem.',
+      architectureFlow: [
+        'Browser SPA (Angular) sends authenticated REST request to AWS ALB (HTTPS, TLS terminated at the load balancer)',
+        'ALB routes to Spring Boot pod via Kubernetes Service (ClusterIP) inside private VPC subnets',
+        'Spring Boot validates the request against a command whitelist layer — verb × resource type × namespace — before any cluster call',
+        'Kubernetes Java Client (fabric8) executes the operation against the EKS control plane using the pod\'s ServiceAccount token — no kubeconfig, no static credentials',
+        'Cluster state response is written to Hazelcast (TTL-cached, invalidated on mutation events) — subsequent reads served from cache, avoiding repeat LIST calls to the API server',
+        'Async events (pod failures, audit entries) are published to a Kafka topic — consumed by a separate Spring Boot listener',
+        'Kafka consumer writes the audit entry to RDS and triggers NVIDIA NIM with structured context: pod name, namespace, event timeline, resource limits, OOM delta',
+        'NIM returns ranked root-cause hypothesis + remediation commands — stored in RDS and surfaced in the UI via polling endpoint /diagnosis/{commandId}',
+      ],
+      engineeringDecisions: [
+        {
+          title: 'Hazelcast over Redis for cluster-state caching',
+          detail: 'Spring Boot runs multi-replica on EKS. Hazelcast embeds in-process and forms a peer cluster automatically via the hazelcast-kubernetes plugin (uses the Kubernetes API server for member discovery), giving topology-aware partition ownership across AZs. Redis would require a separate deployment, a network hop, and manual replication config. Tradeoff: Hazelcast increases JVM heap per pod — bounded by explicit near-cache max-size and TTL eviction policies.',
+        },
+        {
+          title: 'Helm for all Kubernetes deployments',
+          detail: 'Parameterized values files (dev / staging / prod) and atomic helm rollback make environment promotion deterministic. A bad image in staging rolls back in < 2 min. Raw manifests were rejected because environment drift between stages caused silent failures that were difficult to reproduce.',
+        },
+        {
+          title: 'Kafka for async event processing',
+          detail: 'Pod failure events and audit log writes must not block the synchronous kubectl response path. Kafka decouples the hot path from NIM inference (1–3s) and RDS writes. Retry semantics and consumer group offsets give durable at-least-once delivery without coupling the API layer to observability infrastructure.',
+        },
+        {
+          title: 'Command whitelist layer for kubectl security',
+          detail: 'Every incoming command is matched against an allowlist of permitted verbs × resource types × namespace patterns before reaching the Kubernetes client. Destructive operations (delete namespace, drain node) are rejected at the application layer with a structured error — never forwarded to the API server. Defense-in-depth on top of ServiceAccount RBAC.',
+        },
+      ],
+      challenges: [
+        {
+          problem: 'Secure browser-side kubectl execution — kubeconfig exposure risk',
+          solution: 'All Kubernetes operations execute server-side inside the pod using a least-privilege ServiceAccount token. The browser only sends command intent. Backend resolves credentials, validates against the whitelist, and executes via the Java client. TLS terminated at ALB; no static credentials in code or environment variables.',
+          outcome: 'Zero credential exposure surface. Any mutation outside the allowlist is blocked at the application layer before touching the API server.',
+        },
+        {
+          problem: 'Multi-pod cache consistency — stale cluster state across Spring Boot replicas',
+          solution: 'Hazelcast distributed map shared across all pod replicas via Kubernetes peer discovery. Write-through on mutations, TTL-based expiry for read-only state. Each replica owns a partition shard — cache reads resolve locally without an extra network call.',
+          outcome: 'Kubernetes API server LIST call load reduced ~70%. Cache hit rate > 85% in steady state.',
+        },
+        {
+          problem: 'NIM inference latency (1–3s) blocking the ops response path',
+          solution: 'Diagnosis requests are decoupled via Kafka. The synchronous API returns immediately with the cluster operation result; the Kafka consumer triggers NIM asynchronously and writes the diagnosis to RDS. Frontend polls a lightweight /diagnosis/{commandId} endpoint.',
+          outcome: 'Ops round-trip stays < 200ms. NIM diagnosis surfaces in the UI within 2–4s without blocking interactive cluster control.',
+        },
+      ],
+      cicd: 'Multi-stage Docker build (Maven compile → slim JRE runtime image). Helm chart with dev / staging / prod values files managed in Git. Jenkins pipeline: unit tests → integration tests → Docker build + ECR push → helm upgrade (rolling deploy on EKS) → HTTP smoke test against new pod → Prometheus SLO check. Automated rollback via helm rollback if smoke test fails. Deploy time: < 12 min end-to-end, down ~45% from manual.',
+      observability: 'Prometheus scrapes Spring Boot Actuator (custom Micrometer metrics: cache hit rate, command throughput, NIM response time p99). Grafana SLO dashboards with burn-rate alerting — pages at 2× error budget consumption rate. OpenSearch ingests structured JSON logs with correlationId propagated across Kafka consumer threads via MDC context. Zipkin distributed tracing at 10% sample rate in prod. MTTD reduced from ~15 min to < 3 min (↓ 80%).',
       metrics: [
-        { label: 'API server load',       value: '↓ 70%',   delta: 'via Hazelcast cache hit > 85%' },
-        { label: 'Ops round-trip',        value: '< 200ms', delta: '↓ 60% vs raw kubectl' },
-        { label: 'AI diagnosis accuracy', value: '~70%',    delta: 'correct root-cause first attempt' },
-        { label: 'Audit trail',           value: '283+',    delta: 'commands logged with full context' },
+        { label: 'API server load',        value: '↓ 70%',    delta: 'Hazelcast cache hit > 85%' },
+        { label: 'Ops round-trip',         value: '< 200ms',  delta: '↓ 60% vs cold kubectl' },
+        { label: 'Deploy time',            value: '< 12 min', delta: '↓ 45% via CI/CD pipeline' },
+        { label: 'MTTD',                   value: '< 3 min',  delta: '↓ 80% from 15 min baseline' },
+        { label: 'AI diagnosis accuracy',  value: '~70%',     delta: 'correct root-cause, first attempt' },
+        { label: 'Audit trail',            value: '283+',     delta: 'commands logged with full context' },
+      ],
+      techStackGroups: [
+        { category: 'Backend',       items: ['Java 17', 'Spring Boot 3', 'Spring Cloud', 'Kubernetes Java Client (fabric8)'] },
+        { category: 'AWS / Infra',   items: ['EKS', 'EC2', 'ALB', 'RDS PostgreSQL', 'S3', 'IAM / RBAC'] },
+        { category: 'DevOps',        items: ['Docker', 'Kubernetes', 'Helm', 'Jenkins', 'Azure DevOps'] },
+        { category: 'Data / Cache',  items: ['Apache Kafka', 'Hazelcast', 'PostgreSQL'] },
+        { category: 'Observability', items: ['Prometheus', 'Grafana', 'OpenSearch', 'Zipkin', 'Micrometer'] },
+        { category: 'AI',            items: ['NVIDIA NIM (reasoning model)'] },
       ],
       tags: [
-        'Spring Boot 3',
-        'Kubernetes Java Client',
-        'AWS EKS',
-        'Hazelcast',
-        'NVIDIA NIM',
-        'PostgreSQL / RDS',
-        'NGINX Ingress',
-        'AWS ALB',
-        'RBAC',
-        'Angular',
+        'Spring Boot 3', 'Kubernetes Java Client', 'AWS EKS', 'Hazelcast',
+        'Apache Kafka', 'NVIDIA NIM', 'PostgreSQL / RDS', 'AWS ALB',
+        'Helm', 'Docker', 'Jenkins', 'Prometheus', 'Angular',
       ],
       githubUrl: 'https://github.com/neeelinihal',
       featured: true,

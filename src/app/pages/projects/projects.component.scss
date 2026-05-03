@@ -695,6 +695,185 @@
   50%       { opacity: 0.4; transform: scale(0.7); }
 }
 
+// =============================================================================
+// CASE-STUDY: ARCHITECTURE FLOW
+// =============================================================================
+
+.arch-diagram {
+  background: rgba(45, 212, 191, 0.03);
+  border: 1px solid rgba(45, 212, 191, 0.10);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-primary);
+    opacity: 0.75;
+    letter-spacing: 0.03em;
+    margin-bottom: var(--space-4);
+    white-space: normal;
+    word-break: break-word;
+  }
+}
+
+.arch-flow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: none;
+
+  &__step {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+
+  &__num {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    background: rgba(45, 212, 191, 0.12);
+    color: var(--color-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  &__text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+}
+
+// =============================================================================
+// CASE-STUDY: ENGINEERING DECISIONS
+// =============================================================================
+
+.eng-decisions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.eng-decision {
+  background: rgba(45, 212, 191, 0.03);
+  border-left: 2px solid var(--color-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: var(--space-3) var(--space-4);
+
+  &__title {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  &__detail {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    line-height: 1.65;
+    font-style: italic;
+  }
+}
+
+// =============================================================================
+// CASE-STUDY: CHALLENGES & SOLUTIONS
+// =============================================================================
+
+.challenges {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.challenge {
+  border: 1px solid rgba(237, 233, 228, 0.06);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  &__row {
+    display: flex;
+    gap: var(--space-3);
+    align-items: flex-start;
+    padding: var(--space-2) var(--space-4);
+
+    &--problem  { background: rgba(239, 68, 68, 0.04); border-bottom: 1px solid rgba(237,233,228,0.05); }
+    &--solution { background: rgba(45, 212, 191, 0.04); border-bottom: 1px solid rgba(237,233,228,0.05); }
+    &--outcome  { background: rgba(74, 222, 128, 0.04); }
+  }
+
+  &__pill {
+    flex-shrink: 0;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    margin-top: 3px;
+    min-width: 64px;
+    text-align: center;
+
+    &--problem  { background: rgba(239,68,68,0.12);   color: #f87171; }
+    &--solution { background: rgba(45,212,191,0.12);  color: var(--color-primary); }
+    &--outcome  { background: rgba(74,222,128,0.12);  color: #4ade80; }
+  }
+
+  &__text {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: 1.65;
+  }
+}
+
+// =============================================================================
+// CASE-STUDY: TECH STACK GROUPS
+// =============================================================================
+
+.tech-stack-groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.tech-stack-group {
+  display: flex;
+  gap: var(--space-3);
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  &__cat {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    min-width: 90px;
+  }
+
+  &__items {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+}
+
 
 
 

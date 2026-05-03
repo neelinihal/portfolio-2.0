@@ -49,18 +49,101 @@
             </div>
 
             @if (project.featured) {
-              <!-- Solution & Architecture (featured: full) -->
+              <!-- ── SYSTEM OVERVIEW ── -->
               <div class="project-card__section">
-                <span class="project-card__section-label">Solution &amp; Architecture</span>
+                <span class="project-card__section-label">System Overview</span>
                 <p class="project-card__long-desc">{{ project.longDescription }}</p>
               </div>
 
-              @if (project.architectureNote) {
-                <div class="project-card__decision">
-                  <span class="project-card__decision-label">Design decision</span>
-                  <p class="project-card__decision-text">{{ project.architectureNote }}</p>
+              <!-- ── SYSTEM ARCHITECTURE ── -->
+              @if (project.architectureFlow && project.architectureFlow.length > 0) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">System Architecture — Request Flow</span>
+                  <div class="arch-diagram">
+                    <div class="arch-diagram__label">[ Browser ] → [ ALB ] → [ Spring Boot / EKS ] → [ Kubernetes API ] → [ Hazelcast ] → [ Kafka ] → [ NIM + RDS ]</div>
+                    <ol class="arch-flow">
+                      @for (step of project.architectureFlow; track step; let si = $index) {
+                        <li class="arch-flow__step">
+                          <span class="arch-flow__num">{{ si + 1 }}</span>
+                          <span class="arch-flow__text">{{ step }}</span>
+                        </li>
+                      }
+                    </ol>
+                  </div>
                 </div>
               }
+
+              <!-- ── ENGINEERING DECISIONS ── -->
+              @if (project.engineeringDecisions && project.engineeringDecisions.length > 0) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">Key Engineering Decisions</span>
+                  <div class="eng-decisions">
+                    @for (d of project.engineeringDecisions; track d.title) {
+                      <div class="eng-decision">
+                        <span class="eng-decision__title">{{ d.title }}</span>
+                        <p class="eng-decision__detail">{{ d.detail }}</p>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+
+              <!-- ── CHALLENGES & SOLUTIONS ── -->
+              @if (project.challenges && project.challenges.length > 0) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">Challenges &amp; Solutions</span>
+                  <div class="challenges">
+                    @for (c of project.challenges; track c.problem) {
+                      <div class="challenge">
+                        <div class="challenge__row challenge__row--problem">
+                          <span class="challenge__pill challenge__pill--problem">Problem</span>
+                          <span class="challenge__text">{{ c.problem }}</span>
+                        </div>
+                        <div class="challenge__row challenge__row--solution">
+                          <span class="challenge__pill challenge__pill--solution">Solution</span>
+                          <span class="challenge__text">{{ c.solution }}</span>
+                        </div>
+                        <div class="challenge__row challenge__row--outcome">
+                          <span class="challenge__pill challenge__pill--outcome">Outcome</span>
+                          <span class="challenge__text">{{ c.outcome }}</span>
+                        </div>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+
+              <!-- ── CI/CD & DEPLOYMENT ── -->
+              @if (project.cicd) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">CI/CD &amp; Deployment</span>
+                  <p class="project-card__decision-text">{{ project.cicd }}</p>
+                </div>
+              }
+
+              <!-- ── OBSERVABILITY ── -->
+              @if (project.observability) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">Observability &amp; Reliability</span>
+                  <p class="project-card__decision-text">{{ project.observability }}</p>
+                </div>
+              }
+
+              <!-- ── TECH STACK ── -->
+              @if (project.techStackGroups && project.techStackGroups.length > 0) {
+                <div class="project-card__section">
+                  <span class="project-card__section-label">Tech Stack</span>
+                  <div class="tech-stack-groups">
+                    @for (g of project.techStackGroups; track g.category) {
+                      <div class="tech-stack-group">
+                        <span class="tech-stack-group__cat">{{ g.category }}</span>
+                        <span class="tech-stack-group__items">{{ g.items.join(' · ') }}</span>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+
             } @else {
               <!-- Architecture note for non-featured cards -->
               @if (project.architectureNote) {
