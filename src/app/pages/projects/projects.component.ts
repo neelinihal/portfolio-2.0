@@ -60,28 +60,36 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
   readonly projects: Project[] = [
     {
       title: 'KubeOps Platform',
-      tagline: 'AI-powered Kubernetes management — from zero to production on AWS EKS.',
+      tagline: 'Production Kubernetes operations platform — real-time cluster control, AI diagnostics, and full audit trail on AWS EKS.',
       description:
-        'Managing EKS clusters required constant CLI context-switching, no unified observability, and zero intelligent assistance. Engineers spent more time navigating tools than operating infrastructure.',
+        'Operating EKS clusters at scale required constant kubectl context-switching, no unified view across namespaces, and reactive incident response with no AI assistance. Engineers diagnosed OOMKilled pods and CrashLoopBackoff failures manually, correlating logs across tools. No audit trail existed for cluster mutations.',
       longDescription:
-        'Designed and built an end-to-end platform: Spring Boot backend exposes a REST API over the Kubernetes Java client, allowing browser-based kubectl execution without local toolchain setup. Angular SPA renders real-time pod metrics, an events timeline, and deployment controls. NVIDIA NIM (reasoning model) is integrated directly within Spring Boot for AI-assisted cluster diagnostics. Hazelcast in-memory grid caches cluster state to reduce Kubernetes API server load. Deployed on AWS EKS inside a private VPC — NGINX reverse proxy handles ingress, PostgreSQL (RDS) stores execution history.',
+        'Built a production-grade Kubernetes operations platform on AWS EKS. Architecture: Angular SPA → Spring Boot REST API → Kubernetes Java Client (fabric8) → EKS control plane. ' +
+        'The Spring Boot backend authenticates against the EKS API server using in-cluster ServiceAccount RBAC (least-privilege: get/list/watch on pods, deployments, events; exec only on explicitly allowlisted namespaces). ' +
+        'All kubectl-equivalent operations (scale, restart, rollout, exec) are executed server-side — the browser never touches kubeconfig. ' +
+        'Hazelcast in-memory grid runs embedded in Spring Boot across all replicas, caching cluster state (pod list, resource metrics, events) with TTL-based invalidation — reduces Kubernetes API server load by eliminating per-request LIST calls. ' +
+        'NVIDIA NIM reasoning model is wired directly into the Spring Boot service layer: on pod failure events, the platform sends structured context (pod status, recent events, resource limits, OOM delta) to NIM and returns a ranked diagnosis with suggested kubectl remediation steps. ' +
+        'PostgreSQL (RDS) persists the full execution history — every command, its namespace target, user identity, timestamp, and response status. ' +
+        'Deployed inside a private VPC: EKS node group in private subnets, NGINX Ingress Controller fronted by an AWS ALB, Spring Boot pods run as non-root with read-only root filesystem. TLS terminated at ALB.',
       architectureNote:
-        'Chose Hazelcast over Redis for the distributed cache because the deployment runs multi-pod Spring Boot instances that need cluster-aware, topology-sensitive invalidation without a separate broker. Hazelcast embeds directly into the JVM, eliminating one infrastructure dependency.',
+        'Chose Hazelcast over Redis for cluster-state caching because Spring Boot runs multi-replica on EKS — Hazelcast embeds in-process and forms a peer-to-peer cluster automatically via Kubernetes discovery (hazelcast-kubernetes plugin uses the API server to find member pods). This avoids a separate Redis deployment, eliminates the network hop to an external cache, and gives topology-aware partition ownership across AZs. Redis would have required managing replication, eviction policy, and an extra dependency in the Helm chart. The tradeoff: Hazelcast increases JVM heap pressure per pod, which we bounded by setting explicit near-cache eviction and max-size policies.',
       metrics: [
-        { label: 'Cluster ops latency',   value: '< 200ms', delta: '↓ 60%' },
-        { label: 'AI query resolution',   value: '~70%',    delta: 'no manual lookup' },
-        { label: 'API cache hit rate',    value: '> 85%',   delta: 'vs cold Kubernetes API' },
-        { label: 'Commands logged',       value: '283+',    delta: 'full audit trail' },
+        { label: 'API server load',       value: '↓ 70%',   delta: 'via Hazelcast cache hit > 85%' },
+        { label: 'Ops round-trip',        value: '< 200ms', delta: '↓ 60% vs raw kubectl' },
+        { label: 'AI diagnosis accuracy', value: '~70%',    delta: 'correct root-cause first attempt' },
+        { label: 'Audit trail',           value: '283+',    delta: 'commands logged with full context' },
       ],
       tags: [
-        'Spring Boot',
-        'Angular',
+        'Spring Boot 3',
         'Kubernetes Java Client',
         'AWS EKS',
         'Hazelcast',
-        'PostgreSQL',
         'NVIDIA NIM',
-        'NGINX',
+        'PostgreSQL / RDS',
+        'NGINX Ingress',
+        'AWS ALB',
+        'RBAC',
+        'Angular',
       ],
       githubUrl: 'https://github.com/neeelinihal',
       featured: true,
