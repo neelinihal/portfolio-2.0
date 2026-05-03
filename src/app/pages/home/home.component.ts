@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly roles: string[] = [
     'Backend Engineer',
-    'DevOps Enthusiast',
-    'Cloud Builder',
+    'DevOps Engineer',
+    'Cloud-Native Builder',
   ];
 
   readonly currentRole = signal('');
@@ -45,12 +45,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly constellationBadges: TechBadge[] = [
     { name: 'Java',       iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-    { name: 'Spring',     iconUrl: 'https://cdn.simpleicons.org/spring/6DB33F' },
+    { name: 'Spring Boot', iconUrl: 'https://cdn.simpleicons.org/springboot/6DB33F' },
     { name: 'Docker',     iconUrl: 'https://cdn.simpleicons.org/docker/2496ED' },
     { name: 'Kubernetes', iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
-    { name: 'pgAdmin',     iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
     { name: 'AWS',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
+    { name: 'Kafka',      iconUrl: 'https://cdn.simpleicons.org/apachekafka/b0b0b0' },
     { name: 'Linux',      iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
+    { name: 'PostgreSQL', iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1' },
   ];
 
   readonly visualBadges: TechBadge[] = [

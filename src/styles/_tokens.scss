@@ -222,6 +222,7 @@
   // ---------------------------------------------------------------------------
   --font-display: 'Fraunces', Georgia, serif;
   --font-body:    'Satoshi', 'Inter', sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
 
   --text-xs:   clamp(0.7rem,   0.65rem + 0.25vw, 0.8rem);
   --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);

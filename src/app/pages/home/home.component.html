@@ -18,7 +18,7 @@
       </h1>
 
       <p class="hero__descriptor animate-in">
-        Building infrastructure that doesn&#39;t sleep.
+        Building distributed systems that survive production.
       </p>
 
       <p class="hero__role animate-in" aria-live="polite" aria-atomic="true">
@@ -27,9 +27,9 @@
       </p>
 
       <p class="hero__bio animate-in">
-        Backend &amp; DevOps Engineer with 2+ years building cloud-native
-        systems at scale. Spring Boot microservices, Kubernetes orchestration,
-        CI/CD automation &#8212; shipping reliable software from idea to production.
+        Backend and DevOps engineer specializing in Spring Boot microservices, Kubernetes platform engineering, CI/CD automation, and AWS cloud infrastructure.
+        Built KubeOps — an AI-powered EKS management platform — from zero to production on AWS.
+        Spring Boot microservices&thinsp;&#x2022;&thinsp;Kubernetes&thinsp;&#x2022;&thinsp;AWS EKS&thinsp;&#x2022;&thinsp;CI/CD&thinsp;&#x2022;&thinsp;Hazelcast.
       </p>
 
       <div class="hero__actions animate-in">
@@ -92,24 +92,24 @@
       <!-- Stats grid -->
       <div class="featured__stats" role="list" aria-label="Key metrics">
         <div class="stat-card" role="listitem" appReveal [delay]="0">
-          <div class="stat-card__pre" aria-hidden="true">const experience =</div>
-          <div class="stat-card__number" aria-label="2+ years experience">2+</div>
-          <div class="stat-card__label">Years of experience</div>
+          <div class="stat-card__pre" aria-hidden="true">const latency =</div>
+          <div class="stat-card__number" aria-label="40% DB latency reduction">40%</div>
+          <div class="stat-card__label">DB latency cut via Hazelcast</div>
         </div>
         <div class="stat-card" role="listitem" appReveal [delay]="80">
           <div class="stat-card__pre" aria-hidden="true">const uptime =</div>
           <div class="stat-card__number" aria-label="99.2% uptime achieved">99.2%</div>
-          <div class="stat-card__label">Uptime achieved</div>
+          <div class="stat-card__label">Cluster uptime (EKS prod)</div>
         </div>
         <div class="stat-card" role="listitem" appReveal [delay]="160">
-          <div class="stat-card__pre" aria-hidden="true">const improvement =</div>
-          <div class="stat-card__number" aria-label="45% deployment time reduction">45%</div>
-          <div class="stat-card__label">Deployment time cut</div>
+          <div class="stat-card__pre" aria-hidden="true">const mttd =</div>
+          <div class="stat-card__number" aria-label="80% faster incident detection">80%</div>
+          <div class="stat-card__label">Faster incident detection</div>
         </div>
         <div class="stat-card" role="listitem" appReveal [delay]="240">
           <div class="stat-card__pre" aria-hidden="true">const deploys =</div>
           <div class="stat-card__number" aria-label="10+ deployments per week">10+</div>
-          <div class="stat-card__label">Deploys per week</div>
+          <div class="stat-card__label">Weekly deployments shipped</div>
         </div>
       </div>
 
@@ -119,10 +119,9 @@
           <p class="featured__project-label">// Flagship Project</p>
           <h2 class="featured__project-title">KubeOps Platform</h2>
           <p class="featured__project-desc">
-            A full-stack Kubernetes management platform built as a personal
-            DevOps initiative. VNC-style browser-based cluster control,
-            AI-powered assistance via NVIDIA NIM, real-time pod metrics &#8212;
-            deployed on AWS EKS in a private VPC.
+            EKS ops took too long — context-switching between CLI tools, no unified visibility, zero AI assistance.
+            Built KubeOps: browser-based kubectl execution, real-time pod metrics, AI reasoning via NVIDIA NIM,
+            and distributed caching with Hazelcast. Deployed on AWS EKS inside a private VPC.
           </p>
           <div class="featured__project-tags">
             <span class="tag">Spring Boot</span>
@@ -144,7 +143,7 @@
       <!-- Quick nav -->
       <nav class="featured__quicknav" aria-label="Quick navigation">
         <a routerLink="/about" class="quicknav-item" appReveal [delay]="0">
-          <span class="quicknav-item__label">About me</span>
+          <span class="quicknav-item__label">Engineering experience</span>
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>

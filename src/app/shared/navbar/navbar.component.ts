@@ -32,11 +32,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   readonly isScrolled = signal(false);
 
   readonly navLinks: NavLink[] = [
-    { label: 'Home', path: '/', exact: true },
-    { label: 'About', path: '/about', exact: false },
-    { label: 'Skills', path: '/skills', exact: false },
-    { label: 'Projects', path: '/projects', exact: false },
-    { label: 'Contact', path: '/contact', exact: false },
+    { label: 'Home',       path: '/',         exact: true },
+    { label: 'Experience', path: '/about',    exact: false },
+    { label: 'Skills',     path: '/skills',   exact: false },
+    { label: 'Projects',   path: '/projects', exact: false },
+    { label: 'Contact',    path: '/contact',  exact: false },
   ];
 
   private readonly onScroll = (): void => {

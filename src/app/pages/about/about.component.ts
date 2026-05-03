@@ -48,12 +48,12 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
       period: 'October 2024 — Present',
       current: true,
       highlights: [
-        'Architected and deployed 3+ microservices using Spring Boot and REST APIs, supporting 500+ concurrent users with 99.2% uptime across Azure and GKE environments.',
-        'Reduced deployment time by ~45% by automating CI/CD pipelines using Azure DevOps Pipelines and Jenkins, enabling 10+ deployments per week.',
-        'Implemented Apache Kafka for asynchronous messaging across microservices, improving system throughput by ~35% and reducing message latency by ~200ms.',
-        'Optimized distributed caching using Hazelcast, reducing database query latency by ~40% and improving API response time from 800ms to 480ms.',
-        'Established observability using Prometheus, Grafana, and ELK Stack — reduced incident detection time from 15 minutes to 3 minutes (~80% improvement).',
-        'Resolved Kubernetes pod failures and production microservice issues, achieving 99.2% cluster health and reducing MTTR by ~50%.',
+        'Designed and deployed 3 Spring Boot microservices on AWS EKS serving 500+ concurrent users at 99.2% uptime — using Spring Cloud Gateway for routing, Eureka for service discovery, and ConfigServer for externalized configuration.',
+        'Replaced synchronous REST inter-service calls with Apache Kafka event streaming, improving system throughput by 35% and eliminating 200ms of synchronous chain latency on critical user flows.',
+        'Built Hazelcast distributed cache layer to front-load hot DB reads — reduced average DB query latency from 800ms to 480ms (40% improvement) without schema changes.',
+        'Designed multi-stage Jenkins + Azure DevOps CI/CD pipelines (test → build → Helm deploy → smoke validation), enabling 10+ weekly deployments at < 12-minute cycle time, down from 45+ minutes manually.',
+        'Built a three-pillar observability stack from zero: Prometheus (custom Micrometer metrics) + Grafana (SLO dashboards) + ELK (structured log correlation with MDC trace IDs). Compressed incident detection from 15 min to < 3 min — 80% MTTD improvement.',
+        'Diagnosed and resolved Kubernetes pod failures (OOMKilled, CrashLoopBackoff, failing readiness probes) in production, maintaining 99.2% cluster health and reducing MTTR by 50%.',
       ],
     },
   ];

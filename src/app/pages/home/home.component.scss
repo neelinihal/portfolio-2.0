@@ -269,6 +269,8 @@
   gap: var(--space-3);
   z-index: 2;
 
+  @media (max-width: 900px) { display: none; }
+
   &__line {
     width: 1px;
     height: 48px;
