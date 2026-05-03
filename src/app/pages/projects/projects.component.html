@@ -49,95 +49,86 @@
             </div>
 
             @if (project.featured) {
-              <!-- ── SYSTEM OVERVIEW ── -->
-              <div class="project-card__section">
-                <span class="project-card__section-label">System Overview</span>
-                <p class="project-card__long-desc">{{ project.longDescription }}</p>
+
+              <!-- ── PROBLEM ── -->
+              <div class="cs-row">
+                <span class="cs-label">Problem</span>
+                <p class="cs-value">{{ project.description }}</p>
               </div>
 
-              <!-- ── SYSTEM ARCHITECTURE ── -->
+              <!-- ── ARCHITECTURE FLOW ── -->
               @if (project.architectureFlow && project.architectureFlow.length > 0) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">System Architecture — Request Flow</span>
-                  <div class="arch-diagram">
-                    <div class="arch-diagram__label">[ Browser ] → [ ALB ] → [ Spring Boot / EKS ] → [ Kubernetes API ] → [ Hazelcast ] → [ Kafka ] → [ NIM + RDS ]</div>
-                    <ol class="arch-flow">
+                <div class="cs-row">
+                  <span class="cs-label">Architecture</span>
+                  <div class="cs-arch-flow">
+                    <span class="cs-arch-header">{{ project.longDescription }}</span>
+                    <div class="cs-arch-steps">
                       @for (step of project.architectureFlow; track step; let si = $index) {
-                        <li class="arch-flow__step">
-                          <span class="arch-flow__num">{{ si + 1 }}</span>
-                          <span class="arch-flow__text">{{ step }}</span>
-                        </li>
+                        <span class="cs-arch-step"><span class="cs-arch-n">{{ si + 1 }}</span>{{ step }}</span>
                       }
-                    </ol>
+                    </div>
                   </div>
                 </div>
               }
 
               <!-- ── ENGINEERING DECISIONS ── -->
               @if (project.engineeringDecisions && project.engineeringDecisions.length > 0) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">Key Engineering Decisions</span>
-                  <div class="eng-decisions">
+                <div class="cs-row">
+                  <span class="cs-label">Decisions</span>
+                  <div class="cs-decisions">
                     @for (d of project.engineeringDecisions; track d.title) {
-                      <div class="eng-decision">
-                        <span class="eng-decision__title">{{ d.title }}</span>
-                        <p class="eng-decision__detail">{{ d.detail }}</p>
+                      <div class="cs-decision">
+                        <span class="cs-decision__title">{{ d.title }}</span>
+                        <span class="cs-decision__detail">{{ d.detail }}</span>
                       </div>
                     }
                   </div>
                 </div>
               }
 
-              <!-- ── CHALLENGES & SOLUTIONS ── -->
+              <!-- ── CHALLENGES ── -->
               @if (project.challenges && project.challenges.length > 0) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">Challenges &amp; Solutions</span>
-                  <div class="challenges">
+                <div class="cs-row">
+                  <span class="cs-label">Challenges</span>
+                  <div class="cs-challenges">
                     @for (c of project.challenges; track c.problem) {
-                      <div class="challenge">
-                        <div class="challenge__row challenge__row--problem">
-                          <span class="challenge__pill challenge__pill--problem">Problem</span>
-                          <span class="challenge__text">{{ c.problem }}</span>
-                        </div>
-                        <div class="challenge__row challenge__row--solution">
-                          <span class="challenge__pill challenge__pill--solution">Solution</span>
-                          <span class="challenge__text">{{ c.solution }}</span>
-                        </div>
-                        <div class="challenge__row challenge__row--outcome">
-                          <span class="challenge__pill challenge__pill--outcome">Outcome</span>
-                          <span class="challenge__text">{{ c.outcome }}</span>
-                        </div>
+                      <div class="cs-challenge">
+                        <span class="cs-challenge__problem">{{ c.problem }}</span>
+                        <span class="cs-challenge__arrow" aria-hidden="true">→</span>
+                        <span class="cs-challenge__outcome">{{ c.outcome }}</span>
                       </div>
                     }
                   </div>
                 </div>
               }
 
-              <!-- ── CI/CD & DEPLOYMENT ── -->
-              @if (project.cicd) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">CI/CD &amp; Deployment</span>
-                  <p class="project-card__decision-text">{{ project.cicd }}</p>
-                </div>
-              }
-
-              <!-- ── OBSERVABILITY ── -->
-              @if (project.observability) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">Observability &amp; Reliability</span>
-                  <p class="project-card__decision-text">{{ project.observability }}</p>
+              <!-- ── CI/CD + OBSERVABILITY (side by side) ── -->
+              @if (project.cicd || project.observability) {
+                <div class="cs-two-col">
+                  @if (project.cicd) {
+                    <div class="cs-row">
+                      <span class="cs-label">CI/CD</span>
+                      <p class="cs-value cs-value--mono">{{ project.cicd }}</p>
+                    </div>
+                  }
+                  @if (project.observability) {
+                    <div class="cs-row">
+                      <span class="cs-label">Observability</span>
+                      <p class="cs-value cs-value--mono">{{ project.observability }}</p>
+                    </div>
+                  }
                 </div>
               }
 
               <!-- ── TECH STACK ── -->
               @if (project.techStackGroups && project.techStackGroups.length > 0) {
-                <div class="project-card__section">
-                  <span class="project-card__section-label">Tech Stack</span>
-                  <div class="tech-stack-groups">
+                <div class="cs-row">
+                  <span class="cs-label">Stack</span>
+                  <div class="cs-stack">
                     @for (g of project.techStackGroups; track g.category) {
-                      <div class="tech-stack-group">
-                        <span class="tech-stack-group__cat">{{ g.category }}</span>
-                        <span class="tech-stack-group__items">{{ g.items.join(' · ') }}</span>
+                      <div class="cs-stack__group">
+                        <span class="cs-stack__cat">{{ g.category }}</span>
+                        <span class="cs-stack__items">{{ g.items.join(' · ') }}</span>
                       </div>
                     }
                   </div>
