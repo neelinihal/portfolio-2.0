@@ -153,6 +153,12 @@
     @media (max-width: 767px) { margin-bottom: var(--space-6); }
   }
 
+  &__bio-stat {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
   &__actions {
     display: flex;
     align-items: center;

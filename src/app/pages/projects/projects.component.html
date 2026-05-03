@@ -49,12 +49,20 @@
             </div>
 
             @if (project.featured) {
-              <!-- Solution & Architecture -->
+              <!-- Solution & Architecture (featured: full) -->
               <div class="project-card__section">
                 <span class="project-card__section-label">Solution &amp; Architecture</span>
                 <p class="project-card__long-desc">{{ project.longDescription }}</p>
               </div>
 
+              @if (project.architectureNote) {
+                <div class="project-card__decision">
+                  <span class="project-card__decision-label">Design decision</span>
+                  <p class="project-card__decision-text">{{ project.architectureNote }}</p>
+                </div>
+              }
+            } @else {
+              <!-- Architecture note for non-featured cards -->
               @if (project.architectureNote) {
                 <div class="project-card__decision">
                   <span class="project-card__decision-label">Design decision</span>

@@ -134,11 +134,11 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
     },
     {
       title: 'Spring Cloud Microservices Platform',
-      tagline: '500+ concurrent users, 99.2% uptime — full Spring Cloud stack on GKE and Azure.',
+      tagline: '500+ concurrent users, 99.2% uptime — full Spring Cloud stack on AWS EKS.',
       description:
         'Monolithic service was becoming a deployment bottleneck. Single failure domain, shared database, and 45-minute build times blocked the team from shipping independently. Needed to decompose into independently deployable services without losing transactional consistency.',
       longDescription:
-        'Decomposed monolith into 5 bounded-context microservices: API Gateway (Spring Cloud Gateway) for routing and rate limiting, Config Server for centralized externalized config, Eureka for service discovery, and Kafka for async event propagation between services. Hazelcast replaced session-based state in the former monolith, allowing stateless horizontal scaling. Each service deployed as a Kubernetes Deployment with HPA configured on CPU/RPS. PostgreSQL per service (database-per-service pattern) enforces domain isolation.',
+        'Decomposed monolith into 5 bounded-context microservices: API Gateway (Spring Cloud Gateway) for routing and rate limiting, Config Server for centralized externalized config, Eureka for service discovery, and Kafka for async event propagation between services. Hazelcast replaced session-based state in the former monolith, allowing stateless horizontal scaling. Each service deployed as a Kubernetes Deployment on AWS EKS with HPA configured on CPU/RPS. PostgreSQL per service (database-per-service pattern) enforces domain isolation.',
       architectureNote:
         'Kafka (not REST) for inter-service communication wherever consistency requirements allowed eventual consistency — order processing, notification dispatch, audit events. This eliminated the synchronous coupling that previously caused cascading timeouts.',
       metrics: [
@@ -147,7 +147,7 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
         { label: 'Kafka throughput gain', value: '35%',  delta: 'vs synchronous REST' },
         { label: 'Message latency',      value: '200ms', delta: '↓ vs sync chain' },
       ],
-      tags: ['Spring Boot', 'Spring Cloud Gateway', 'Spring Cloud Config', 'Eureka', 'Apache Kafka', 'Hazelcast', 'GKE', 'Azure'],
+      tags: ['Spring Boot', 'Spring Cloud Gateway', 'Spring Cloud Config', 'Eureka', 'Apache Kafka', 'Hazelcast', 'AWS EKS'],
       githubUrl: 'https://github.com/neeelinihal',
       featured: false,
     },
