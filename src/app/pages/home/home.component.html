@@ -18,7 +18,7 @@
       </h1>
 
       <p class="hero__descriptor animate-in">
-        Owning services from API contract to production rollout on AWS EKS.
+        Backend &amp; DevOps engineer — API contract to production on AWS EKS.
       </p>
 
       <p class="hero__role animate-in" aria-live="polite" aria-atomic="true">
@@ -26,11 +26,25 @@
         <span class="hero__cursor" [class.visible]="showCursor()" aria-hidden="true"></span>
       </p>
 
-      <p class="hero__bio animate-in">
-        Backend and DevOps/SRE engineer with 2+ years. Java/Spring Boot microservices on AWS EKS — RDS Postgres, Kafka async messaging, Hazelcast distributed caching, clean transaction boundaries.
-        On the platform side: Docker, Helm-managed Kubernetes, Jenkins + Azure DevOps CI/CD with automated gates and rollback hooks.
-        Cut deploy time <span class="hero__bio-stat">~45%</span>. Cut MTTD <span class="hero__bio-stat">~80%</span> via Prometheus, Grafana, and OpenSearch SLO dashboards.
-      </p>
+      <!-- Scannable impact bullets -->
+      <ul class="hero__bullets animate-in" aria-label="Key achievements">
+        <li class="hero__bullet">
+          <span class="hero__bullet-icon" aria-hidden="true">▹</span>
+          3 microservices on AWS EKS — <strong>500+ concurrent users, 99.2% uptime</strong>
+        </li>
+        <li class="hero__bullet">
+          <span class="hero__bullet-icon" aria-hidden="true">▹</span>
+          Rebuilt CI/CD from scratch — <strong>45% faster cycle, 10+ deploys/week</strong>
+        </li>
+        <li class="hero__bullet">
+          <span class="hero__bullet-icon" aria-hidden="true">▹</span>
+          Observability stack zero → production — <strong>MTTD 15 min → 3 min</strong>
+        </li>
+        <li class="hero__bullet">
+          <span class="hero__bullet-icon" aria-hidden="true">▹</span>
+          Built KubeOps — AI-powered K8s platform with NVIDIA NIM on EKS
+        </li>
+      </ul>
 
       <div class="hero__actions animate-in">
         <a routerLink="/projects" class="btn btn--primary btn--magnetic" appMagnetic>
@@ -39,7 +53,7 @@
             <path d="M3 11L11 3M11 3H6M11 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="https://resume290.s3.eu-north-1.amazonaws.com/Neeli_Nihal.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" appMagnetic
+        <a href="https://neelinihal.github.io/portfolio-2.0/assets/Neeli_Nihal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" appMagnetic
            aria-label="Download Neeli Nihal CV">Download CV</a>
         <span class="hero__actions-sep" aria-hidden="true">&#183;</span>
         <a href="https://github.com/neeelinihal" target="_blank" rel="noopener noreferrer"
@@ -55,6 +69,7 @@
           </svg>
         </a>
       </div>
+
     </div>
 
     <!-- RIGHT: tech constellation (desktop only) -->
@@ -119,17 +134,33 @@
           <p class="featured__project-label">// Flagship Project</p>
           <h2 class="featured__project-title">KubeOps Platform</h2>
           <p class="featured__project-desc">
-            EKS ops took too long — context-switching between CLI tools, no unified visibility, zero AI assistance.
+            EKS ops took too long — fragmented CLI tools, no unified visibility, zero AI assistance.
             Built KubeOps: browser-based kubectl execution, real-time pod metrics, AI reasoning via NVIDIA NIM,
-            and distributed caching with Hazelcast. Deployed on AWS EKS inside a private VPC.
+            Hazelcast distributed caching, RDS persistence, NGINX ingress, deployed inside a private VPC on AWS EKS.
           </p>
+          <div class="featured__project-metrics" aria-label="Project metrics">
+            <div class="featured__project-metric">
+              <span class="featured__project-metric-val">Sub-200ms</span>
+              <span class="featured__project-metric-lbl">cache read latency</span>
+            </div>
+            <div class="featured__project-metric">
+              <span class="featured__project-metric-val">Private VPC</span>
+              <span class="featured__project-metric-lbl">zero-exposure deploy</span>
+            </div>
+            <div class="featured__project-metric">
+              <span class="featured__project-metric-val">Full audit</span>
+              <span class="featured__project-metric-lbl">trail &amp; RBAC</span>
+            </div>
+          </div>
           <div class="featured__project-tags">
             <span class="tag">Spring Boot</span>
             <span class="tag">Angular</span>
-            <span class="tag">Python</span>
+            <span class="tag">Kafka</span>
             <span class="tag">Kubernetes</span>
             <span class="tag">AWS EKS</span>
             <span class="tag">Hazelcast</span>
+            <span class="tag">NVIDIA NIM</span>
+            <span class="tag">NGINX</span>
           </div>
           <a routerLink="/projects" class="featured__project-link" appMagnetic>
             Explore project
