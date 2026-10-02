@@ -28,6 +28,7 @@ interface SkillCategory {
 }
 
 const AWS_ICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg';
+const AZURE_ICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg';
 
 @Component({
   selector: 'app-skills',
@@ -61,7 +62,13 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
         { name: 'Auto Scaling', iconUrl: AWS_ICON, level: 'Advanced' },
         { name: 'AWS S3',       iconUrl: AWS_ICON, level: 'Advanced' },
         { name: 'CloudWatch',   iconUrl: AWS_ICON, level: 'Advanced' },
-        { name: 'Azure',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg', level: 'Proficient' },
+        { name: 'Azure VMs',          iconUrl: AZURE_ICON, level: 'Advanced' },
+        { name: 'Azure VNet',         iconUrl: AZURE_ICON, level: 'Advanced' },
+        { name: 'Microsoft Entra ID', iconUrl: AZURE_ICON, level: 'Advanced' },
+        { name: 'Azure Monitor',      iconUrl: AZURE_ICON, level: 'Advanced' },
+        { name: 'Azure Storage',      iconUrl: AZURE_ICON, level: 'Proficient' },
+        { name: 'Azure AKS',          iconUrl: AZURE_ICON, level: 'Proficient' },
+        { name: 'Azure Load Balancer', iconUrl: AZURE_ICON, level: 'Proficient' },
       ],
     },
     {
