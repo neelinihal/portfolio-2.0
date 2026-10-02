@@ -18,7 +18,7 @@
       </h1>
 
       <p class="hero__descriptor animate-in">
-        Backend &amp; DevOps engineer — API contract to production on AWS EKS.
+        DevOps &amp; Cloud Engineer — I automate everything from commit to production on AWS.
       </p>
 
       <p class="hero__role animate-in" aria-live="polite" aria-atomic="true">
@@ -30,19 +30,19 @@
       <ul class="hero__bullets animate-in" aria-label="Key achievements">
         <li class="hero__bullet">
           <span class="hero__bullet-icon" aria-hidden="true">▹</span>
-          3 microservices on AWS EKS — <strong>500+ concurrent users, 99.2% uptime</strong>
+          AWS EKS Production — <strong>3 clusters, 99.2% uptime, zero unplanned downtime</strong>
         </li>
         <li class="hero__bullet">
           <span class="hero__bullet-icon" aria-hidden="true">▹</span>
-          Rebuilt CI/CD from scratch — <strong>45% faster cycle, 10+ deploys/week</strong>
+          CI/CD Pipeline Engineering — <strong>45 min → 12 min deploys, 10+ releases/week</strong>
         </li>
         <li class="hero__bullet">
           <span class="hero__bullet-icon" aria-hidden="true">▹</span>
-          Observability stack zero → production — <strong>MTTD 15 min → 3 min</strong>
+          Observability from Zero — <strong>Prometheus + Grafana + ELK, 80% faster MTTD</strong>
         </li>
         <li class="hero__bullet">
           <span class="hero__bullet-icon" aria-hidden="true">▹</span>
-          Built KubeOps — AI-powered K8s platform with NVIDIA NIM on EKS
+          Kubernetes Expertise — <strong>Helm, HPA, rolling updates, pod troubleshooting</strong>
         </li>
       </ul>
 
@@ -53,10 +53,10 @@
             <path d="M3 11L11 3M11 3H6M11 3V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="https://neelinihal.github.io/portfolio-2.0/assets/Neeli_Nihal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" appMagnetic
+        <a href="assets/Neeli_Nihal_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" appMagnetic
            aria-label="Download Neeli Nihal CV">Download CV</a>
         <span class="hero__actions-sep" aria-hidden="true">&#183;</span>
-        <a href="https://github.com/neeelinihal" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/neelinihal" target="_blank" rel="noopener noreferrer"
            class="hero__social-link" aria-label="GitHub profile">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
@@ -107,14 +107,14 @@
       <!-- Stats grid -->
       <div class="featured__stats" role="list" aria-label="Key metrics">
         <div class="stat-card" role="listitem" appReveal [delay]="0">
-          <div class="stat-card__pre" aria-hidden="true">const latency =</div>
-          <div class="stat-card__number" aria-label="40% DB latency reduction">40%</div>
-          <div class="stat-card__label">DB latency cut via Hazelcast</div>
-        </div>
-        <div class="stat-card" role="listitem" appReveal [delay]="80">
           <div class="stat-card__pre" aria-hidden="true">const uptime =</div>
           <div class="stat-card__number" aria-label="99.2% uptime achieved">99.2%</div>
-          <div class="stat-card__label">Cluster uptime (EKS prod)</div>
+          <div class="stat-card__label">Production cluster uptime</div>
+        </div>
+        <div class="stat-card" role="listitem" appReveal [delay]="80">
+          <div class="stat-card__pre" aria-hidden="true">const deploys =</div>
+          <div class="stat-card__number" aria-label="12 minute deploy cycle">12min</div>
+          <div class="stat-card__label">CI/CD cycle time (was 45+)</div>
         </div>
         <div class="stat-card" role="listitem" appReveal [delay]="160">
           <div class="stat-card__pre" aria-hidden="true">const mttd =</div>
@@ -122,9 +122,9 @@
           <div class="stat-card__label">Faster incident detection</div>
         </div>
         <div class="stat-card" role="listitem" appReveal [delay]="240">
-          <div class="stat-card__pre" aria-hidden="true">const deploys =</div>
+          <div class="stat-card__pre" aria-hidden="true">const releases =</div>
           <div class="stat-card__number" aria-label="10+ deployments per week">10+</div>
-          <div class="stat-card__label">Weekly deployments shipped</div>
+          <div class="stat-card__label">Weekly production releases</div>
         </div>
       </div>
 
@@ -153,14 +153,14 @@
             </div>
           </div>
           <div class="featured__project-tags">
-            <span class="tag">Spring Boot</span>
-            <span class="tag">Angular</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Kubernetes</span>
             <span class="tag">AWS EKS</span>
-            <span class="tag">Hazelcast</span>
+            <span class="tag">Kubernetes</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Helm</span>
+            <span class="tag">Terraform</span>
+            <span class="tag">Prometheus</span>
             <span class="tag">NVIDIA NIM</span>
-            <span class="tag">NGINX</span>
+            <span class="tag">Spring Boot</span>
           </div>
           <a routerLink="/projects" class="featured__project-link" appMagnetic>
             Explore project

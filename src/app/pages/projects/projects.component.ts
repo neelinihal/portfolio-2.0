@@ -21,37 +21,11 @@ export interface Screenshot {
 export interface ProjectMetric {
   label: string;
   value: string;
-  delta?: string; // e.g. "↓ 40%"
-}
-
-export interface EngineeringDecision {
-  title: string;
-  detail: string;
-}
-
-export interface Challenge {
-  problem: string;
-  solution: string;
-  outcome: string;
-}
-
-export interface TechStackGroup {
-  category: string;
-  items: string[];
 }
 
 export interface Project {
   title: string;
   tagline: string;
-  description: string;
-  longDescription: string;
-  architectureNote?: string;
-  architectureFlow?: string[];          // Numbered request-flow steps
-  engineeringDecisions?: EngineeringDecision[];
-  challenges?: Challenge[];
-  cicd?: string;
-  observability?: string;
-  techStackGroups?: TechStackGroup[];
   metrics?: ProjectMetric[];
   tags: string[];
   githubUrl: string;
@@ -76,149 +50,69 @@ export class ProjectsComponent implements AfterViewInit, OnDestroy {
   readonly cardStates = signal<string[]>([]);
   readonly activeScreenshot = signal<number>(0);
 
+  readonly githubIconPath =
+    'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z';
+
   private observer: IntersectionObserver | null = null;
   private slideTimer: ReturnType<typeof setInterval> | null = null;
 
   readonly projects: Project[] = [
     {
-      title: 'KubeOps — AI-Powered Kubernetes Management Platform',
-      tagline: 'Production Kubernetes operations platform: secure browser-based cluster control, AI-driven diagnostics, and full audit trail on AWS EKS.',
-      description:
-        'No unified cross-namespace view, no AI-assisted failure diagnosis, no audit trail on cluster mutations. Engineers context-switched between kubectl, CloudWatch, and logs to triage OOMKilled and CrashLoopBackoff incidents reactively.',
-      longDescription:
-        'Browser → ALB (TLS) → Spring Boot (whitelist layer + ServiceAccount RBAC) → Kubernetes Java Client → EKS control plane → Hazelcast (TTL cache, K8s peer discovery) → Kafka (async audit + NIM trigger) → NVIDIA NIM diagnosis → RDS audit store.',
-      architectureFlow: [
-        'Browser → ALB (TLS terminated) → Spring Boot ClusterIP Service inside private VPC',
-        'Command whitelist: verb × resource × namespace validated before any K8s call',
-        'fabric8 Java Client → EKS API using pod ServiceAccount token — no kubeconfig, no static creds',
-        'Response cached in Hazelcast (embedded, TTL-invalidated on mutations) — hits > 85%, K8s API load ↓ 70%',
-        'Async: pod failures + audit entries → Kafka → consumer triggers NIM + RDS write',
-        'NIM receives structured context (pod status, OOM delta, event timeline) → ranked diagnosis + remediation',
-      ],
-      engineeringDecisions: [
-        {
-          title: 'Hazelcast over Redis',
-          detail: 'Embeds in-process, forms peer cluster via hazelcast-kubernetes (K8s API discovery), AZ-aware partition ownership. No extra deployment, no network hop. Tradeoff: higher JVM heap — bounded by near-cache eviction policy.',
-        },
-        {
-          title: 'Helm over raw manifests',
-          detail: 'Parameterized dev/staging/prod values files + atomic helm rollback. Bad staging image rolls back in < 2 min without kubectl intervention.',
-        },
-        {
-          title: 'Kafka for async decoupling',
-          detail: 'NIM inference (1–3s) and RDS writes must not block the synchronous kubectl response path. Kafka gives durable at-least-once delivery with consumer group offset management.',
-        },
-        {
-          title: 'Whitelist layer over raw exec',
-          detail: 'Allowlist of verb × resource × namespace patterns rejects destructive ops (drain node, delete namespace) at the app layer — never reaches the API server. Defense-in-depth on top of RBAC.',
-        },
-      ],
-      challenges: [
-        {
-          problem: 'kubeconfig exposure in browser',
-          solution: 'Server-side execution via ServiceAccount token — browser sends intent only',
-          outcome: 'Zero credential surface. All mutations blocked outside allowlist before K8s call.',
-        },
-        {
-          problem: 'Stale cache across multi-replica pods',
-          solution: 'Hazelcast peer cluster with write-through + TTL expiry',
-          outcome: 'Cache hit > 85%, K8s API server load ↓ 70%',
-        },
-        {
-          problem: 'NIM latency (1–3s) on critical path',
-          solution: 'Kafka-decoupled async trigger — API returns immediately, UI polls /diagnosis/{id}',
-          outcome: 'Ops round-trip < 200ms. Diagnosis available within 2–4s.',
-        },
-      ],
-      cicd: 'Multi-stage Docker (Maven → slim JRE) · Helm values per env · Jenkins: test → build → ECR push → helm upgrade (rolling) → smoke test → Prometheus SLO gate · auto helm rollback on failure · < 12 min end-to-end (↓ 45%)',
-      observability: 'Prometheus + Micrometer (cache hit rate, command throughput, NIM p99) · Grafana SLO dashboards, burn-rate alerts at 2× budget · OpenSearch structured logs with MDC correlationId across Kafka threads · Zipkin 10% sample · MTTD ↓ 80% (15 min → < 3 min)',
+      title: 'KubeOps Platform',
+      tagline: 'Built an AI-powered Kubernetes management platform from scratch — browser-based kubectl, real-time cluster diagnostics via NVIDIA NIM, full audit trail. Deployed on AWS EKS inside a private VPC with Terraform.',
       metrics: [
-        { label: 'API server load',        value: '↓ 70%',    delta: 'Hazelcast cache hit > 85%' },
-        { label: 'Ops round-trip',         value: '< 200ms',  delta: '↓ 60% vs cold kubectl' },
-        { label: 'Deploy time',            value: '< 12 min', delta: '↓ 45% via CI/CD pipeline' },
-        { label: 'MTTD',                   value: '< 3 min',  delta: '↓ 80% from 15 min baseline' },
-        { label: 'AI diagnosis accuracy',  value: '~70%',     delta: 'correct root-cause, first attempt' },
-        { label: 'Audit trail',            value: '283+',     delta: 'commands logged with full context' },
+        { label: 'API server load',  value: '↓ 70%' },
+        { label: 'Ops round-trip',   value: '< 200ms' },
+        { label: 'AI root-cause',    value: '~70% acc.' },
+        { label: 'Commands audited', value: '283+' },
       ],
-      techStackGroups: [
-        { category: 'Backend',       items: ['Java 17', 'Spring Boot 3', 'Spring Cloud', 'Kubernetes Java Client (fabric8)'] },
-        { category: 'AWS / Infra',   items: ['EKS', 'EC2', 'ALB', 'RDS PostgreSQL', 'S3', 'IAM / RBAC'] },
-        { category: 'DevOps',        items: ['Docker', 'Kubernetes', 'Helm', 'Jenkins', 'Azure DevOps'] },
-        { category: 'Data / Cache',  items: ['Apache Kafka', 'Hazelcast', 'PostgreSQL'] },
-        { category: 'Observability', items: ['Prometheus', 'Grafana', 'OpenSearch', 'Zipkin', 'Micrometer'] },
-        { category: 'AI',            items: ['NVIDIA NIM (reasoning model)'] },
-      ],
-      tags: [
-        'Spring Boot 3', 'Kubernetes Java Client', 'AWS EKS', 'Hazelcast',
-        'Apache Kafka', 'NVIDIA NIM', 'PostgreSQL / RDS', 'AWS ALB',
-        'Helm', 'Docker', 'Jenkins', 'Prometheus', 'Angular',
-      ],
-      githubUrl: 'https://github.com/neeelinihal',
+      tags: ['AWS EKS', 'Kubernetes', 'Docker', 'Helm', 'Terraform', 'Prometheus', 'NVIDIA NIM', 'PostgreSQL/RDS', 'NGINX'],
+      githubUrl: 'https://github.com/neelinihal/KubeOps',
       featured: true,
       screenshots: [
-        { src: 'assets/projects/kubeops-dashboard.png',      caption: 'Command Center — one-click kubectl execution' },
-        { src: 'assets/projects/kubeops-cluster-pods.png',   caption: 'Deployment Control — scale, restart, rollout' },
-        { src: 'assets/projects/kubeops-resources.png',      caption: 'Resource Monitor — CPU & memory per pod' },
-        { src: 'assets/projects/kubeops-resources-2.png',    caption: 'Resource Monitor — 7 pods, 28% avg CPU usage' },
-        { src: 'assets/projects/kubeops-events.png',         caption: 'Events Timeline — 38 Normal, 17 Warning events' },
-        { src: 'assets/projects/kubeops-history.png',        caption: 'Execution History — 283+ logged commands' },
+        { src: 'assets/projects/kubeops-dashboard.png',    caption: 'Command Center — one-click kubectl execution' },
+        { src: 'assets/projects/kubeops-cluster-pods.png', caption: 'Deployment Control — scale, restart, rollout' },
+        { src: 'assets/projects/kubeops-resources.png',    caption: 'Resource Monitor — CPU & memory per pod' },
+        { src: 'assets/projects/kubeops-resources-2.png',  caption: 'Resource Monitor — 7 pods, 28% avg CPU' },
+        { src: 'assets/projects/kubeops-events.png',       caption: 'Events Timeline — 38 Normal, 17 Warning' },
+        { src: 'assets/projects/kubeops-history.png',      caption: 'Execution History — 283+ logged commands' },
       ],
+    },
+    {
+      title: 'CI/CD Pipeline Architecture',
+      tagline: 'Designed end-to-end Jenkins + Azure DevOps pipelines — multi-stage builds, Docker image scanning, Helm chart deployments, automated smoke tests, and rollback gates. Commit to production in under 12 minutes.',
+      metrics: [
+        { label: 'Cycle time',      value: '< 12 min' },
+        { label: 'Before',          value: '45+ min' },
+        { label: 'Weekly releases', value: '10+' },
+        { label: 'Downtime',        value: '0' },
+      ],
+      tags: ['Jenkins', 'Azure DevOps', 'GitHub Actions', 'Docker', 'Kubernetes', 'Helm', 'AWS EKS', 'Bash'],
+      githubUrl: 'https://github.com/neelinihal',
+      featured: false,
     },
     {
       title: 'Production Observability Stack',
-      tagline: 'Cut incident detection from 15 min to 3 min across distributed microservices.',
-      description:
-        'Distributed microservices produced logs and metrics in isolation. Incidents were detected reactively — an engineer noticed, not an alert. Mean time to detect averaged 15 minutes; root cause required manual log correlation across services.',
-      longDescription:
-        'Built a three-pillar observability platform: Prometheus scrapes Spring Boot Actuator endpoints (custom metrics exposed via Micrometer) with alerting rules for SLO breaches. Grafana dashboards visualize per-service error rates, latency histograms, and pod resource consumption. ELK stack (Logstash → Elasticsearch → Kibana) ingests structured JSON logs with correlation IDs, enabling cross-service trace reconstruction. Zipkin integrated for distributed tracing with sampling at 10% in production.',
-      architectureNote:
-        'Structured logs with a shared correlationId header were the key unlock — without it, Kibana queries across 5 services were noise. Added a Spring Boot filter that propagates MDC context across thread boundaries and Kafka consumer threads.',
+      tagline: 'Built three-pillar observability from zero — Prometheus metrics with custom Micrometer instrumentation, Grafana SLO dashboards with alerting, ELK Stack for structured logging with MDC trace correlation. Integrated with CloudWatch for AWS-layer visibility.',
       metrics: [
-        { label: 'Incident detection time',  value: '< 3 min',  delta: '↓ 80% from 15 min' },
-        { label: 'MTTR reduction',           value: '50%',       delta: 'faster root cause' },
-        { label: 'Services covered',         value: '5',         delta: 'full stack coverage' },
-        { label: 'Alert false-positive rate', value: '< 5%',    delta: 'after 2-week tuning' },
+        { label: 'Detection time',   value: '< 3 min' },
+        { label: 'MTTD reduction',   value: '↓ 80%' },
+        { label: 'Services covered', value: '5' },
       ],
-      tags: ['Prometheus', 'Grafana', 'Elasticsearch', 'Kibana', 'Logstash', 'Zipkin', 'Micrometer', 'Spring Boot'],
-      githubUrl: 'https://github.com/neeelinihal',
+      tags: ['Prometheus', 'Grafana', 'Elasticsearch', 'Kibana', 'CloudWatch', 'Zipkin', 'OpenSearch', 'Alertmanager'],
+      githubUrl: 'https://github.com/neelinihal',
       featured: false,
     },
     {
-      title: 'Microservices CI/CD Pipeline',
-      tagline: 'Automated multi-stage pipeline — from commit to production in < 12 minutes.',
-      description:
-        'Manual deployments required 45+ minutes per service, involved human handoffs between test and deploy stages, and had no rollback strategy. Kubernetes rollouts were triggered manually via kubectl.',
-      longDescription:
-        'Designed multi-stage Jenkins + Azure DevOps pipelines triggered by Git branch conventions. Pipeline stages: unit test → integration test → Docker build + tag → registry push → Helm upgrade (rolling deploy on Kubernetes). Automated canary validation via HTTP smoke tests against the new pod before draining old replicas. Git hooks enforce conventional commits; failures block merge. Post-deploy Prometheus alerting confirms no SLO degradation within 5 minutes before marking the release green.',
-      architectureNote:
-        'Chose Helm over raw Kubernetes manifests to enable parameterized environment configuration (dev/staging/prod values files) and atomic rollbacks via `helm rollback` — critical when a bad image ships to staging.',
+      title: 'AWS EKS Infrastructure',
+      tagline: 'Architected production-grade AWS EKS clusters — VPC with private subnets, ALB Ingress Controller, IAM roles for service accounts (IRSA), Auto Scaling groups, S3 for artifacts, CloudWatch logging. Zero unplanned downtime across 3 environments.',
       metrics: [
-        { label: 'Deployment time',       value: '< 12 min', delta: '↓ 45% from 22 min' },
-        { label: 'Weekly deployments',    value: '10+',       delta: 'from 2–3 manual' },
-        { label: 'Rollback time',         value: '< 2 min',   delta: 'via helm rollback' },
-        { label: 'Test coverage gate',    value: '80%+',      delta: 'blocks merge on fail' },
+        { label: 'Uptime',           value: '99.2%' },
+        { label: 'Environments',     value: '3' },
+        { label: 'Concurrent users', value: '500+' },
       ],
-      tags: ['Jenkins', 'Azure DevOps', 'Docker', 'Kubernetes', 'Helm', 'Shell', 'Prometheus'],
-      githubUrl: 'https://github.com/neeelinihal',
-      featured: false,
-    },
-    {
-      title: 'Spring Cloud Microservices Platform',
-      tagline: '500+ concurrent users, 99.2% uptime — full Spring Cloud stack on AWS EKS.',
-      description:
-        'Monolithic service was becoming a deployment bottleneck. Single failure domain, shared database, and 45-minute build times blocked the team from shipping independently. Needed to decompose into independently deployable services without losing transactional consistency.',
-      longDescription:
-        'Decomposed monolith into 5 bounded-context microservices: API Gateway (Spring Cloud Gateway) for routing and rate limiting, Config Server for centralized externalized config, Eureka for service discovery, and Kafka for async event propagation between services. Hazelcast replaced session-based state in the former monolith, allowing stateless horizontal scaling. Each service deployed as a Kubernetes Deployment on AWS EKS with HPA configured on CPU/RPS. PostgreSQL per service (database-per-service pattern) enforces domain isolation.',
-      architectureNote:
-        'Kafka (not REST) for inter-service communication wherever consistency requirements allowed eventual consistency — order processing, notification dispatch, audit events. This eliminated the synchronous coupling that previously caused cascading timeouts.',
-      metrics: [
-        { label: 'Concurrent users',     value: '500+',  delta: 'sustained load tested' },
-        { label: 'Uptime (SLA)',         value: '99.2%', delta: 'measured over 3 months' },
-        { label: 'Kafka throughput gain', value: '35%',  delta: 'vs synchronous REST' },
-        { label: 'Message latency',      value: '200ms', delta: '↓ vs sync chain' },
-      ],
-      tags: ['Spring Boot', 'Spring Cloud Gateway', 'Spring Cloud Config', 'Eureka', 'Apache Kafka', 'Hazelcast', 'AWS EKS'],
-      githubUrl: 'https://github.com/neeelinihal',
+      tags: ['AWS EKS', 'AWS VPC', 'AWS ALB', 'AWS IAM', 'Auto Scaling', 'Terraform', 'Helm', 'Kubernetes'],
+      githubUrl: 'https://github.com/neelinihal',
       featured: false,
     },
   ];

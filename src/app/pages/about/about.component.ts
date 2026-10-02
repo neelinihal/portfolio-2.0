@@ -19,6 +19,7 @@ interface Experience {
   location: string;
   period: string;
   current: boolean;
+  client?: string;
   highlights: string[];
 }
 
@@ -42,18 +43,20 @@ export class AboutComponent implements AfterViewInit, OnDestroy {
 
   readonly experiences: Experience[] = [
     {
-      role: 'Project Engineer',
+      role: 'DevOps & Cloud Engineer',
       company: 'Wipro Technologies',
       location: 'Chennai, India',
       period: 'October 2024 — Present',
       current: true,
+      client: 'Standard Chartered Bank',
       highlights: [
-        'Designed and deployed 3 Spring Boot microservices on AWS EKS serving 500+ concurrent users at 99.2% uptime — using Spring Cloud Gateway for routing, Eureka for service discovery, and ConfigServer for externalized configuration.',
-        'Replaced synchronous REST inter-service calls with Apache Kafka event streaming, improving system throughput by 35% and eliminating 200ms of synchronous chain latency on critical user flows.',
-        'Built Hazelcast distributed cache layer to front-load hot DB reads — reduced average DB query latency from 800ms to 480ms (40% improvement) without schema changes.',
-        'Designed multi-stage Jenkins + Azure DevOps CI/CD pipelines (test → build → Helm deploy → smoke validation), enabling 10+ weekly deployments at < 12-minute cycle time, down from 45+ minutes manually.',
-        'Built a three-pillar observability stack from zero: Prometheus (custom Micrometer metrics) + Grafana (SLO dashboards) + ELK (structured log correlation with MDC trace IDs). Compressed incident detection from 15 min to < 3 min — 80% MTTD improvement.',
-        'Diagnosed and resolved Kubernetes pod failures (OOMKilled, CrashLoopBackoff, failing readiness probes) in production, maintaining 99.2% cluster health and reducing MTTR by 50%.',
+        'Designed and maintained AWS EKS production clusters (EC2 node groups, VPC subnets, ALB Ingress, IAM roles/IRSA) serving 500+ concurrent users at 99.2% uptime — zero unplanned downtime across 3 environments.',
+        'Designed and owned multi-stage Jenkins + Azure DevOps CI/CD pipelines (test → build → Docker push → Helm deploy → smoke validation), cutting cycle time from 45+ minutes to < 12 minutes and enabling 10+ releases per week.',
+        'Provisioned and managed Kubernetes workloads end-to-end — Helm chart authoring, rolling-update strategies, HPA configuration, and pod-disruption budgets — across dev, staging, and production namespaces.',
+        'Built three-pillar observability stack from zero: Prometheus (custom Micrometer metrics) + Grafana (SLO/SLA dashboards with alerting rules) + ELK Stack (structured log ingestion with MDC trace-ID correlation). Compressed incident detection from 15 min to < 3 min — 80% MTTD improvement.',
+        'Diagnosed and resolved Kubernetes pod failures (OOMKilled, CrashLoopBackoff, failing readiness/liveness probes) in production, reducing MTTR by 50% and maintaining 99.2% cluster health.',
+        'Replaced synchronous REST inter-service calls with Apache Kafka event streaming, improving system throughput by 35% and eliminating 200 ms of synchronous-chain latency on critical user flows.',
+        'Authored Bash automation scripts for log rotation, health-check polling, and on-call runbook execution — reducing manual toil by ~3 hours/week per on-call engineer.',
       ],
     },
   ];

@@ -23,8 +23,11 @@ interface Skill {
 interface SkillCategory {
   name: string;
   description: string;
+  icon: string;
   skills: Skill[];
 }
+
+const AWS_ICON = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg';
 
 @Component({
   selector: 'app-skills',
@@ -46,55 +49,92 @@ export class SkillsComponent implements AfterViewInit, OnDestroy {
 
   readonly categories: SkillCategory[] = [
     {
-      name: 'Backend',
-      description: 'Server-side engineering & data persistence',
+      name: 'Cloud & Infrastructure',
+      description: 'AWS & Azure services powering production at scale',
+      icon: '☁',
       skills: [
-        { name: 'Java',            iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg',                                level: 'Expert' },
-        { name: 'Spring Boot',     iconUrl: 'https://cdn.simpleicons.org/springboot/6DB33F',                                                                   level: 'Expert' },
-        { name: 'Spring Framework',iconUrl: 'https://cdn.simpleicons.org/spring/6DB33F',                                                                       level: 'Expert' },
-        { name: 'Hibernate / JPA', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/hibernate/hibernate-original.svg',                      level: 'Advanced' },
-        { name: 'PostgreSQL',      iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1',                                                                   level: 'Advanced' },
-        { name: 'MySQL',           iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg',                              level: 'Advanced' },
-        { name: 'Apache Kafka',    iconUrl: 'https://cdn.simpleicons.org/apachekafka/b0b0b0',                                                                  level: 'Advanced' },
-        { name: 'Hazelcast',       iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg',                              level: 'Advanced' },
-        { name: 'REST APIs',       iconUrl: 'https://cdn.simpleicons.org/postman/FF6C37',                                                                      level: 'Expert' },
+        { name: 'AWS EKS',      iconUrl: AWS_ICON, level: 'Expert' },
+        { name: 'AWS EC2',      iconUrl: AWS_ICON, level: 'Expert' },
+        { name: 'AWS VPC',      iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'AWS IAM',      iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'AWS ALB',      iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'Auto Scaling', iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'AWS S3',       iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'CloudWatch',   iconUrl: AWS_ICON, level: 'Advanced' },
+        { name: 'Azure',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg', level: 'Proficient' },
       ],
     },
     {
-      name: 'DevOps & CI/CD',
-      description: 'Automation, pipelines & infrastructure',
+      name: 'Containers & Orchestration',
+      description: 'Container lifecycle, scheduling & cluster operations',
+      icon: '⬡',
       skills: [
-        { name: 'Docker',        iconUrl: 'https://cdn.simpleicons.org/docker/2496ED',                                                                       level: 'Expert' },
-        { name: 'Kubernetes',    iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5',                                                                   level: 'Expert' },
-        { name: 'Jenkins',       iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg',                          level: 'Advanced' },
-        { name: 'Azure DevOps',  iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg',                  level: 'Advanced' },
-        { name: 'Helm',          iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg',                                level: 'Advanced' },
-        { name: 'Ansible',       iconUrl: 'https://cdn.simpleicons.org/ansible/EE0000',                                                                     level: 'Proficient' },
-        { name: 'Terraform',     iconUrl: 'https://cdn.simpleicons.org/terraform/7B42BC',                                                                   level: 'Proficient' },
-        { name: 'Linux / Bash',  iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',                             level: 'Advanced' },
-        { name: 'Maven',         iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg',                             level: 'Advanced' },
+        { name: 'Docker',     iconUrl: 'https://cdn.simpleicons.org/docker/2496ED',                                    level: 'Expert' },
+        { name: 'Kubernetes', iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5',                                level: 'Expert' },
+        { name: 'Helm',       iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/helm/helm-original.svg', level: 'Advanced' },
       ],
     },
     {
-      name: 'Cloud',
-      description: 'Managed services & cloud-native platforms',
+      name: 'CI/CD & Automation',
+      description: 'Pipeline engineering, release automation & delivery',
+      icon: '⚙',
       skills: [
-        { name: 'AWS EC2 / EKS', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', level: 'Advanced' },
-        { name: 'AWS S3 / VPC',  iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', level: 'Advanced' },
-        { name: 'AWS IAM / SNS', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg', level: 'Proficient' },
-        { name: 'pgAdmin',       iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1',                                                                   level: 'Proficient' },
-        { name: 'Azure',         iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',                              level: 'Proficient' },
+        { name: 'Jenkins',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg',         level: 'Expert' },
+        { name: 'Azure DevOps',   iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuredevops/azuredevops-original.svg', level: 'Advanced' },
+        { name: 'GitHub Actions', iconUrl: 'https://cdn.simpleicons.org/githubactions/2088FF',                                              level: 'Advanced' },
+        { name: 'Maven',          iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/maven/maven-original.svg',             level: 'Advanced' },
       ],
     },
     {
-      name: 'Observability',
-      description: 'Monitoring, logging & distributed tracing',
+      name: 'Infrastructure as Code',
+      description: 'Declarative, repeatable infrastructure provisioning',
+      icon: '◈',
       skills: [
-        { name: 'Prometheus',    iconUrl: 'https://cdn.simpleicons.org/prometheus/E6522C',    level: 'Advanced' },
-        { name: 'Grafana',       iconUrl: 'https://cdn.simpleicons.org/grafana/F46800',       level: 'Advanced' },
-        { name: 'Elasticsearch', iconUrl: 'https://cdn.simpleicons.org/elasticsearch/005571', level: 'Proficient' },
-        { name: 'Kibana',        iconUrl: 'https://cdn.simpleicons.org/kibana/005571',        level: 'Proficient' },
+        { name: 'Terraform', iconUrl: 'https://cdn.simpleicons.org/terraform/7B42BC', level: 'Advanced' },
+      ],
+    },
+    {
+      name: 'Monitoring & Observability',
+      description: 'Metrics, logs, traces — full-stack production visibility',
+      icon: '◎',
+      skills: [
+        { name: 'Prometheus',    iconUrl: 'https://cdn.simpleicons.org/prometheus/E6522C',    level: 'Expert' },
+        { name: 'Grafana',       iconUrl: 'https://cdn.simpleicons.org/grafana/F46800',       level: 'Expert' },
+        { name: 'Elasticsearch', iconUrl: 'https://cdn.simpleicons.org/elasticsearch/005571', level: 'Advanced' },
+        { name: 'Kibana',        iconUrl: 'https://cdn.simpleicons.org/kibana/005571',        level: 'Advanced' },
+        { name: 'OpenSearch',    iconUrl: 'https://cdn.simpleicons.org/opensearch/005EB8',    level: 'Proficient' },
         { name: 'Zipkin',        iconUrl: 'https://cdn.simpleicons.org/jaeger/60D0E4',        level: 'Proficient' },
+      ],
+    },
+    {
+      name: 'Operating Systems & Scripting',
+      description: 'Linux administration, automation & shell engineering',
+      icon: '▸',
+      skills: [
+        { name: 'Linux (RHEL)', iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redhat/redhat-original.svg', level: 'Expert' },
+        { name: 'Bash',         iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg',     level: 'Advanced' },
+      ],
+    },
+    {
+      name: 'Messaging & Databases',
+      description: 'Event streaming, relational stores & distributed caching',
+      icon: '⇌',
+      skills: [
+        { name: 'Apache Kafka', iconUrl: 'https://cdn.simpleicons.org/apachekafka/b0b0b0',                                   level: 'Advanced' },
+        { name: 'MySQL',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg', level: 'Advanced' },
+        { name: 'PostgreSQL',   iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1',                                    level: 'Advanced' },
+        { name: 'Hazelcast',    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg', level: 'Proficient' },
+      ],
+    },
+    {
+      name: 'Programming & Backend Familiarity',
+      description: 'Application-layer knowledge that sharpens platform decisions',
+      icon: '‹›',
+      skills: [
+        { name: 'Java',          iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg', level: 'Advanced' },
+        { name: 'Spring Boot',   iconUrl: 'https://cdn.simpleicons.org/springboot/6DB33F',                                  level: 'Advanced' },
+        { name: 'REST APIs',     iconUrl: 'https://cdn.simpleicons.org/postman/FF6C37',                                     level: 'Advanced' },
+        { name: 'Microservices', iconUrl: 'https://cdn.simpleicons.org/springboot/6DB33F',                                  level: 'Proficient' },
       ],
     },
   ];

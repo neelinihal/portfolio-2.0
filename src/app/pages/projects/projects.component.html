@@ -1,15 +1,13 @@
 <div class="projects" @fadeSlideIn>
 
-  <!-- Header -->
   <div class="projects__header page-wrapper">
     <p class="section-label">Engineering work</p>
     <h1 class="projects__title" appScramble>Projects</h1>
     <p class="projects__subtitle">
-      Deep dives — not feature lists. Each entry documents the problem, the architectural decisions, and the measured outcomes.
+      Real systems, real outcomes — measured results, not feature lists.
     </p>
   </div>
 
-  <!-- Bento grid -->
   <div class="projects__grid page-wrapper">
 
     @for (project of projects; track project.title; let i = $index) {
@@ -18,277 +16,134 @@
         class="project-card"
         [class.project-card--featured]="project.featured"
         [attr.data-index]="i"
-        [attr.data-num]="'0' + (i + 1)"
         [@cardReveal]="cardStates()[i] || 'hidden'"
         (mousemove)="onCardMouseMove($event, $event.currentTarget)"
         (mouseleave)="onCardMouseLeave($event.currentTarget)"
       >
-        <!-- Number accent + arrow (non-featured only) -->
         @if (!project.featured) {
-          <span class="project-card__num" aria-hidden="true">0{{ i }}</span>
-          <svg class="project-card__arrow" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
-            <path d="M4 14L14 4M14 4H7M14 4V11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+          <span class="project-card__num" aria-hidden="true">0{{ i + 1 }}</span>
         }
 
         <div class="project-card__inner">
-          <div class="project-card__body">
-            @if (project.featured) {
-              <span class="project-card__featured-badge">Featured Project</span>
-            }
+          @if (project.featured) {
+            <div class="project-card__featured-layout">
+              <div class="project-card__body">
+                <span class="project-card__featured-badge">Featured Project</span>
+                <h2 class="project-card__title">{{ project.title }}</h2>
+                <p class="project-card__tagline">{{ project.tagline }}</p>
 
-            <h2 class="project-card__title">{{ project.title }}</h2>
-            @if (project.tagline) {
-              <p class="project-card__tagline">{{ project.tagline }}</p>
-            }
+                <div class="project-card__metrics">
+                  @for (m of project.metrics; track m.label) {
+                    <div class="project-metric">
+                      <span class="project-metric__value">{{ m.value }}</span>
+                      <span class="project-metric__label">{{ m.label }}</span>
+                    </div>
+                  }
+                </div>
 
-            <!-- Problem -->
-            <div class="project-card__section">
-              <span class="project-card__section-label">Problem</span>
-              <p class="project-card__desc">{{ project.description }}</p>
-            </div>
+                <div class="project-card__tags">
+                  @for (tag of project.tags; track tag) {
+                    <span class="tag">{{ tag }}</span>
+                  }
+                </div>
 
-            @if (project.featured) {
-
-              <!-- ── PROBLEM ── -->
-              <div class="cs-row">
-                <span class="cs-label">Problem</span>
-                <p class="cs-value">{{ project.description }}</p>
+                <a
+                  class="project-card__link"
+                  [href]="project.githubUrl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  [attr.aria-label]="'View ' + project.title + ' on GitHub'"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path [attr.d]="githubIconPath"/>
+                  </svg>
+                  View on GitHub
+                </a>
               </div>
 
-              <!-- ── ARCHITECTURE FLOW ── -->
-              @if (project.architectureFlow && project.architectureFlow.length > 0) {
-                <div class="cs-row">
-                  <span class="cs-label">Architecture</span>
-                  <div class="cs-arch-flow">
-                    <span class="cs-arch-header">{{ project.longDescription }}</span>
-                    <div class="cs-arch-steps">
-                      @for (step of project.architectureFlow; track step; let si = $index) {
-                        <span class="cs-arch-step"><span class="cs-arch-n">{{ si + 1 }}</span>{{ step }}</span>
+              @if (project.screenshots && project.screenshots.length > 0) {
+                <div class="ss-showcase" aria-label="KubeOps screenshots">
+                  <div class="ss-showcase__primary">
+                    <div class="ss-showcase__chrome" aria-hidden="true">
+                      <div class="ss-showcase__chrome-dots">
+                        <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--red"></span>
+                        <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--yellow"></span>
+                        <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--green"></span>
+                      </div>
+                      <div class="ss-showcase__chrome-bar">eks-ops-center.internal</div>
+                    </div>
+
+                    <div class="ss-showcase__viewport">
+                      @for (shot of project.screenshots; track shot.src; let si = $index) {
+                        <img
+                          class="ss-showcase__img"
+                          [class.active]="activeScreenshot() === si"
+                          [src]="shot.src"
+                          [alt]="shot.caption"
+                          loading="lazy"
+                          draggable="false"
+                        />
                       }
+                      <div class="ss-showcase__caption-overlay" aria-live="polite">
+                        {{ project.screenshots[activeScreenshot()].caption }}
+                      </div>
                     </div>
                   </div>
-                </div>
-              }
 
-              <!-- ── ENGINEERING DECISIONS ── -->
-              @if (project.engineeringDecisions && project.engineeringDecisions.length > 0) {
-                <div class="cs-row">
-                  <span class="cs-label">Decisions</span>
-                  <div class="cs-decisions">
-                    @for (d of project.engineeringDecisions; track d.title) {
-                      <div class="cs-decision">
-                        <span class="cs-decision__title">{{ d.title }}</span>
-                        <span class="cs-decision__detail">{{ d.detail }}</span>
-                      </div>
+                  <div class="ss-showcase__thumbs" role="tablist">
+                    @for (shot of project.screenshots; track shot.src; let si = $index) {
+                      <button
+                        class="ss-showcase__thumb"
+                        [class.active]="activeScreenshot() === si"
+                        (click)="goToSlide(si)"
+                        role="tab"
+                        type="button"
+                        [attr.aria-selected]="activeScreenshot() === si"
+                        [attr.aria-label]="shot.caption"
+                      >
+                        <img [src]="shot.src" [alt]="shot.caption" loading="lazy" draggable="false" />
+                      </button>
                     }
                   </div>
                 </div>
-              }
-
-              <!-- ── CHALLENGES ── -->
-              @if (project.challenges && project.challenges.length > 0) {
-                <div class="cs-row">
-                  <span class="cs-label">Challenges</span>
-                  <div class="cs-challenges">
-                    @for (c of project.challenges; track c.problem) {
-                      <div class="cs-challenge">
-                        <span class="cs-challenge__problem">{{ c.problem }}</span>
-                        <span class="cs-challenge__arrow" aria-hidden="true">→</span>
-                        <span class="cs-challenge__outcome">{{ c.outcome }}</span>
-                      </div>
-                    }
-                  </div>
-                </div>
-              }
-
-              <!-- ── CI/CD + OBSERVABILITY (side by side) ── -->
-              @if (project.cicd || project.observability) {
-                <div class="cs-two-col">
-                  @if (project.cicd) {
-                    <div class="cs-row">
-                      <span class="cs-label">CI/CD</span>
-                      <p class="cs-value cs-value--mono">{{ project.cicd }}</p>
-                    </div>
-                  }
-                  @if (project.observability) {
-                    <div class="cs-row">
-                      <span class="cs-label">Observability</span>
-                      <p class="cs-value cs-value--mono">{{ project.observability }}</p>
-                    </div>
-                  }
-                </div>
-              }
-
-              <!-- ── TECH STACK ── -->
-              @if (project.techStackGroups && project.techStackGroups.length > 0) {
-                <div class="cs-row">
-                  <span class="cs-label">Stack</span>
-                  <div class="cs-stack">
-                    @for (g of project.techStackGroups; track g.category) {
-                      <div class="cs-stack__group">
-                        <span class="cs-stack__cat">{{ g.category }}</span>
-                        <span class="cs-stack__items">{{ g.items.join(' · ') }}</span>
-                      </div>
-                    }
-                  </div>
-                </div>
-              }
-
-            } @else {
-              <!-- Architecture note for non-featured cards -->
-              @if (project.architectureNote) {
-                <div class="project-card__decision">
-                  <span class="project-card__decision-label">Design decision</span>
-                  <p class="project-card__decision-text">{{ project.architectureNote }}</p>
-                </div>
-              }
-            }
-
-            <!-- Metrics -->
-            @if (project.metrics && project.metrics.length > 0) {
-              <div class="project-card__metrics">
-                @for (m of project.metrics; track m.label) {
-                  <div class="project-metric">
-                    <span class="project-metric__value">{{ m.value }}</span>
-                    @if (m.delta) {
-                      <span class="project-metric__delta">{{ m.delta }}</span>
-                    }
-                    <span class="project-metric__label">{{ m.label }}</span>
-                  </div>
-                }
-              </div>
-            }
-
-            <div class="project-card__tags">
-              @for (tag of project.tags; track tag) {
-                <span class="tag">{{ tag }}</span>
               }
             </div>
-          </div>
+          } @else {
+            <div class="project-card__body">
+              <h2 class="project-card__title">{{ project.title }}</h2>
+              <p class="project-card__tagline">{{ project.tagline }}</p>
 
-          <!-- Screenshot showcase — featured card only -->
-          @if (project.featured && project.screenshots && project.screenshots.length > 0) {
-            <div class="ss-showcase" aria-label="KubeOps platform screenshots">
-
-              <!-- Primary display -->
-              <div class="ss-showcase__primary">
-                <!-- macOS-style browser chrome -->
-                <div class="ss-showcase__chrome" aria-hidden="true">
-                  <div class="ss-showcase__chrome-dots">
-                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--red"></span>
-                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--yellow"></span>
-                    <span class="ss-showcase__chrome-dot ss-showcase__chrome-dot--green"></span>
-                  </div>
-                  <div class="ss-showcase__chrome-bar">
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-                      <circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1"/>
-                      <path d="M6 3v3l2 1" stroke="currentColor" stroke-width="1" stroke-linecap="round"/>
-                    </svg>
-                    <span>eks-ops-center.internal</span>
-                  </div>
-                  <div class="ss-showcase__chrome-actions" aria-hidden="true">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="5.5" stroke="currentColor" stroke-width="1"/><path d="M5 7h4M7 5v4" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>
-                  </div>
-                </div>
-
-                <!-- Active image viewport — top-cropped to show nav + hero area -->
-                <div class="ss-showcase__viewport">
-                  @for (shot of project.screenshots; track shot.src; let si = $index) {
-                    <img
-                      class="ss-showcase__img"
-                      [class.active]="activeScreenshot() === si"
-                      [src]="shot.src"
-                      [alt]="shot.caption"
-                      loading="lazy"
-                      draggable="false"
-                    />
+              @if (project.metrics && project.metrics.length > 0) {
+                <div class="project-card__metrics project-card__metrics--compact">
+                  @for (m of project.metrics.slice(0, 2); track m.label) {
+                    <div class="project-metric">
+                      <span class="project-metric__value">{{ m.value }}</span>
+                      <span class="project-metric__label">{{ m.label }}</span>
+                    </div>
                   }
-
-                  <!-- Live badge overlay -->
-                  <div class="ss-showcase__live-badge" aria-hidden="true">
-                    <span class="ss-showcase__live-dot"></span>
-                    LIVE
-                  </div>
-
-                  <!-- Caption overlay strip at bottom -->
-                  <div class="ss-showcase__caption-overlay" aria-live="polite" aria-atomic="true">
-                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
-                      <rect x="1" y="1" width="11" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/>
-                      <path d="M4 12h5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                      <path d="M6.5 9v3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-                    </svg>
-                    {{ project.screenshots[activeScreenshot()].caption }}
-                  </div>
                 </div>
-              </div>
+              }
 
-              <!-- Thumbnail strip -->
-              <div class="ss-showcase__thumbs" role="tablist" aria-label="Screenshot thumbnails">
-                @for (shot of project.screenshots; track shot.src; let si = $index) {
-                  <button
-                    class="ss-showcase__thumb"
-                    [class.active]="activeScreenshot() === si"
-                    (click)="goToSlide(si)"
-                    role="tab"
-                    [attr.aria-selected]="activeScreenshot() === si"
-                    [attr.aria-label]="'View: ' + shot.caption"
-                    type="button"
-                  >
-                    <img
-                      [src]="shot.src"
-                      [alt]="shot.caption"
-                      loading="lazy"
-                      draggable="false"
-                    />
-                    <div class="ss-showcase__thumb-overlay" aria-hidden="true"></div>
-                  </button>
+              <div class="project-card__tags">
+                @for (tag of project.tags.slice(0, 5); track tag) {
+                  <span class="tag">{{ tag }}</span>
                 }
               </div>
 
+              <a
+                class="project-card__link project-card__link--subtle"
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="'View ' + project.title + ' on GitHub'"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path [attr.d]="githubIconPath"/>
+                </svg>
+                GitHub
+              </a>
             </div>
           }
-
-          <footer class="project-card__footer">
-            <a
-              [href]="project.githubUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="project-card__link"
-              [attr.aria-label]="'View ' + project.title + ' on GitHub'"
-            >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              GitHub
-            </a>
-
-            @if (project.featured) {
-              <div class="project-card__highlights">
-                <span class="project-card__highlight-item">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  AWS EKS deployed
-                </span>
-                <span class="project-card__highlight-item">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  AI-powered CLI
-                </span>
-                <span class="project-card__highlight-item">
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5"/>
-                    <path d="M5 8l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  283+ commands logged
-                </span>
-              </div>
-            }
-          </footer>
         </div>
       </article>
     }

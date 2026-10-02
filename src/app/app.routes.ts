@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    title: 'Neeli Nihal — Backend & DevOps Engineer',
+    title: 'Neeli Nihal — DevOps & Cloud Engineer',
   },
   {
     path: 'about',
@@ -26,6 +26,14 @@ export const routes: Routes = [
         (m) => m.ProjectsComponent
       ),
     title: 'Projects — Neeli Nihal',
+  },
+  {
+    path: 'certifications',
+    loadComponent: () =>
+      import('./pages/certifications/certifications.component').then(
+        (m) => m.CertificationsComponent
+      ),
+    title: 'Certifications — Neeli Nihal',
   },
   {
     path: 'contact',

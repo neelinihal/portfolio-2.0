@@ -36,6 +36,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     { label: 'Experience', path: '/about',    exact: false },
     { label: 'Skills',     path: '/skills',   exact: false },
     { label: 'Projects',   path: '/projects', exact: false },
+    { label: 'Certifications', path: '/certifications', exact: false },
     { label: 'Contact',    path: '/contact',  exact: false },
   ];
 

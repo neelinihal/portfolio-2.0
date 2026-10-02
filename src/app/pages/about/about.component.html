@@ -5,7 +5,7 @@
   ========================================================= -->
   <div class="about__header page-wrapper">
     <p class="section-label">Engineering background</p>
-    <h1 class="about__title" appScramble>Experience</h1>
+    <h1 class="about__title" appScramble>About</h1>
   </div>
 
   <!-- =========================================================
@@ -15,46 +15,53 @@
     <div class="bio__portrait" aria-hidden="true">
       <div class="bio__portrait-frame">
         <div class="bio__portrait-placeholder">
-          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <svg width="44" height="44" viewBox="0 0 48 48" fill="none" aria-hidden="true">
             <circle cx="24" cy="18" r="9" stroke="currentColor" stroke-width="1.5"/>
             <path d="M6 42c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           </svg>
         </div>
         <div class="bio__portrait-badge">
           <span class="bio__portrait-badge-dot"></span>
-          Available for opportunities
+          Open to opportunities
         </div>
       </div>
     </div>
 
     <div class="bio__content">
       <h2 class="bio__heading">
-        Systems-first engineer.<br />
-        <em>Backend, DevOps &amp; Cloud.</em>
+        DevOps &amp; Cloud Engineer.<br />
+        <em>I ship infrastructure that holds.</em>
       </h2>
 
       <p class="bio__text">
-        I'm Neeli Nihal — backend and DevOps/SRE engineer based in Hyderabad, with 2+ years
-        owning services from API contract to production rollout on AWS EKS.
+        Neeli Nihal — 2+ years owning AWS EKS clusters, CI/CD pipelines, and observability stacks
+        end-to-end. Terraform, Kubernetes, Helm, Prometheus, ELK. I own the full cycle: provision,
+        automate, monitor, improve.
       </p>
 
       <p class="bio__text">
-        On the backend: Java/Spring Boot microservices over RDS Postgres with JPA/Hibernate,
-        Kafka for async event messaging, and Hazelcast for distributed caching and session state —
-        designed around clean transaction boundaries, idempotent handlers, and predictable tail latency.
-        On the platform side: Docker, Helm-managed Kubernetes, AWS EC2/ALB/Auto Scaling, and IAM
-        least-privilege boundaries. Rebuilt CI/CD on Jenkins and Azure DevOps with parallelized stages,
-        automated promotion gates, and rollback hooks — cutting deploy time ~45%.
-        Closed the observability gap with Prometheus, Grafana, and OpenSearch — SLO dashboards
-        and burn-rate alerts dropped MTTD ~80%.
+        Side project: <strong>KubeOps</strong> — AI-powered Kubernetes management on EKS with
+        NVIDIA NIM in Spring Boot, Hazelcast caching, RDS, NGINX ingress, and full audit trail.
       </p>
 
-      <p class="bio__text">
-        Outside work, I built KubeOps — an AI-powered Kubernetes management platform
-        deployed on AWS EKS with NVIDIA NIM integrated directly in Spring Boot. Not a tutorial project:
-        production system with Hazelcast caching, RDS persistence, NGINX ingress, and full audit trail.
-        I build for fault tolerance, deployment safety, and measurable operational impact.
-      </p>
+      <div class="bio__stats" aria-label="Key metrics">
+        <div class="bio__stat">
+          <span class="bio__stat-value">45%</span>
+          <span class="bio__stat-label">faster deploys</span>
+        </div>
+        <div class="bio__stat">
+          <span class="bio__stat-value">80%</span>
+          <span class="bio__stat-label">MTTD reduction</span>
+        </div>
+        <div class="bio__stat">
+          <span class="bio__stat-value">99.2%</span>
+          <span class="bio__stat-label">cluster uptime</span>
+        </div>
+        <div class="bio__stat">
+          <span class="bio__stat-value">35%</span>
+          <span class="bio__stat-label">throughput gain</span>
+        </div>
+      </div>
 
       <div class="bio__details">
         <div class="bio__detail-item">
@@ -110,10 +117,18 @@
                   <span class="timeline__badge">Current</span>
                 }
               </div>
-              <p class="timeline__company">
-                {{ exp.company }} · {{ exp.location }}
-              </p>
-              <p class="timeline__period">{{ exp.period }}</p>
+              <div class="timeline__meta-row">
+                <p class="timeline__company">
+                  {{ exp.company }} · {{ exp.location }}
+                </p>
+                <p class="timeline__period">{{ exp.period }}</p>
+              </div>
+              @if (exp.client) {
+                <p class="timeline__client">
+                  <span class="timeline__client-label">Client</span>
+                  {{ exp.client }}
+                </p>
+              }
             </header>
 
             <ul class="timeline__highlights" role="list">

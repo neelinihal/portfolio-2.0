@@ -30,9 +30,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   private readonly cdr = inject(ChangeDetectorRef);
 
   readonly roles: string[] = [
-    'Backend Engineer',
     'DevOps Engineer',
-    'Cloud-Native Builder',
+    'Cloud Infrastructure',
+    'CI/CD Automation',
+    'Kubernetes Expert',
   ];
 
   readonly currentRole = signal('');
@@ -44,20 +45,20 @@ export class HomeComponent implements OnInit, OnDestroy {
   private cursorTimer: ReturnType<typeof setInterval> | null = null;
 
   readonly constellationBadges: TechBadge[] = [
-    { name: 'Java',       iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg' },
-    { name: 'Spring Boot', iconUrl: 'https://cdn.simpleicons.org/springboot/6DB33F' },
-    { name: 'Docker',     iconUrl: 'https://cdn.simpleicons.org/docker/2496ED' },
-    { name: 'Kubernetes', iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
     { name: 'AWS',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
-    { name: 'Kafka',      iconUrl: 'https://cdn.simpleicons.org/apachekafka/b0b0b0' },
+    { name: 'Kubernetes', iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
+    { name: 'Docker',     iconUrl: 'https://cdn.simpleicons.org/docker/2496ED' },
+    { name: 'Terraform',  iconUrl: 'https://cdn.simpleicons.org/terraform/7B42BC' },
+    { name: 'Jenkins',    iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jenkins/jenkins-original.svg' },
+    { name: 'Prometheus', iconUrl: 'https://cdn.simpleicons.org/prometheus/E6522C' },
+    { name: 'Grafana',    iconUrl: 'https://cdn.simpleicons.org/grafana/F46800' },
     { name: 'Linux',      iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
-    { name: 'PostgreSQL', iconUrl: 'https://cdn.simpleicons.org/postgresql/4169E1' },
   ];
 
   readonly visualBadges: TechBadge[] = [
     { name: 'Kubernetes', iconUrl: 'https://cdn.simpleicons.org/kubernetes/326CE5' },
     { name: 'AWS',        iconUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
-    { name: 'Spring',     iconUrl: 'https://cdn.simpleicons.org/spring/6DB33F' },
+    { name: 'Terraform',  iconUrl: 'https://cdn.simpleicons.org/terraform/7B42BC' },
   ];
 
   ngOnInit(): void {

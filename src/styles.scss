@@ -20,6 +20,8 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: radial-gradient(rgba(232, 230, 227, 0.04) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 h1, h2, .display {
@@ -143,12 +145,19 @@ h3, h4, h5, h6 {
   align-items: center;
   gap: var(--space-2);
   font-size: var(--text-xs);
-  font-weight: 600;
-  letter-spacing: 0.2em;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-primary);
-  font-family: 'Satoshi', sans-serif;
+  font-family: var(--font-mono);
   margin-bottom: var(--space-4);
+
+  &::before {
+    content: '//';
+    opacity: 0.45;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
 }
 
 // Pill tags
